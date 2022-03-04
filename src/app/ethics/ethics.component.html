@@ -1,0 +1,16 @@
+<div class="card m-3">
+    <h5 class="card-header">Angular + Template-Driven Forms - Required Checkbox</h5>
+    <div class="card-body">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <div class="form-group form-check">
+                <input type="checkbox" name="acceptTerms" id="acceptTerms" class="form-check-input" [(ngModel)]="model.acceptTerms" #acceptTerms="ngModel" [ngClass]="{ 'is-invalid': f.submitted && acceptTerms.invalid }" required>
+                <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+                <div *ngIf="f.submitted && acceptTerms.invalid" class="invalid-feedback">Accept Ts & Cs is required</div>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary mr-1">Register</button>
+                <button class="btn btn-secondary" type="reset">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
