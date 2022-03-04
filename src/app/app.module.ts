@@ -8,6 +8,7 @@ import { EthicsComponent } from './ethics/ethics.component';
 import { appRoutes } from './routes';
 import { DownloadComponent } from './download/download.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CanDownloadGuard } from './download/can-download.guard';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules})
   ],
-  providers: [],
+  providers: [
+    CanDownloadGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
