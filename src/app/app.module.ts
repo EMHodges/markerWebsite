@@ -16,12 +16,18 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { UploadComponent } from './upload/upload.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatRippleModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
     AppComponent,
     EthicsComponent,
-    DownloadComponent
+    DownloadComponent,
+    UploadComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
@@ -32,8 +38,10 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatCardModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatGridListModule,
     ReactiveFormsModule,
     MatTooltipModule,
+    MatRippleModule,
     RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules}),
     BrowserAnimationsModule
   ],
