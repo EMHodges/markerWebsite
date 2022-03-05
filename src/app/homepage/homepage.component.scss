@@ -5,7 +5,25 @@ mat-grid-tile {
 .container { 
     margin-right: 10%;
     margin-left: 10%;
-    margin-top: 10%;
-    margin-bottom: 10%;
+    margin-top: 5%;
+    margin-bottom: 20%;
 }
 
+.example-card {
+    max-width: 300px;
+    margin-bottom: 50px;
+    float: left;
+}
+
+.space {
+    margin-top: 4rem;
+}
+
+.top {
+    margin-top: 5%
+}
+
+.container .top .yo {
+    display: table;
+    margin: 0 auto;
+}

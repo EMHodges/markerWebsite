@@ -20,6 +20,7 @@ import { UploadComponent } from './upload/upload.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatRippleModule} from '@angular/material/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {MatRippleModule} from '@angular/material/core';
     MatToolbarModule,
     MatCardModule,
     MatButtonModule,
+    FontAwesomeModule,
     MatCheckboxModule,
     MatGridListModule,
     ReactiveFormsModule,

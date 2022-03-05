@@ -21,4 +21,8 @@ export class DownloadComponent implements OnInit {
 
   }
 
+  getName() {
+    return "python-marker" + ("" + Math.random()).substring(2, 8);
+  }
+
 }

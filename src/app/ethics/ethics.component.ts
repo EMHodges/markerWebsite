@@ -15,7 +15,6 @@ export class EthicsComponent {
 
   onSubmit() {
     this.downloadService.triggerDownload()
-    window.location.href = "https://formfacade.com/public/108681976523810358966/all/form/1FAIpQLSfsgf3-M9WaeUvA1TnrjZb0WXvL9fppHHxaOZQL9Q9199SUVw"
-   // this.router.navigate(['/download'])
+    this.router.navigate(['/download'])
   }
 }
