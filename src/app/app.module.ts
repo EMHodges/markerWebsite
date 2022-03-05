@@ -9,6 +9,13 @@ import { appRoutes } from './routes';
 import { DownloadComponent } from './download/download.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CanDownloadGuard } from './download/can-download.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider'
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -20,8 +27,15 @@ import { CanDownloadGuard } from './download/can-download.guard';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    MatSliderModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatButtonModule,
+    MatCheckboxModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules})
+    MatTooltipModule,
+    RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules}),
+    BrowserAnimationsModule
   ],
   providers: [
     CanDownloadGuard
