@@ -1,27 +1,33 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subject, takeUntil } from 'rxjs';
 import { DownloadService } from './download.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CanDownloadGuard implements CanActivate {
+export class CanDownloadGuard implements CanActivate, OnDestroy {
 
   private canDownload: boolean = false;
+  private ngUnsubscribe = new Subject();
 
   constructor(private router: Router, private downloadService: DownloadService) {
-    downloadService.canDownload().subscribe(canDownload => this.canDownload = canDownload)
+    this.downloadService.canDownload()
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(canDownload => this.canDownload = canDownload)
   }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if(!this.canDownload) {
-      this.router.navigate(<any[]><unknown>'');
+      this.router.navigate(['ethics']);
     }
-    console.log(this.canDownload)
     return this.canDownload
   }
   
+  ngOnDestroy(){
+    this.ngUnsubscribe.next(undefined);
+    this.ngUnsubscribe.complete();
+  }
 }
