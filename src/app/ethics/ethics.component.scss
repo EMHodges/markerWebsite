@@ -12,3 +12,11 @@
 .invalid {
     color: red;
 }
+
+mat-card-subtitle {
+    margin-bottom: 5px;
+}
+
+.mat-card-title:not(:first-child), .mat-card-subtitle:not(:first-child) {
+    margin-top: 1.5rem;
+}

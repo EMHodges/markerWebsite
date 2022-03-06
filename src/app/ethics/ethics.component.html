@@ -1,9 +1,57 @@
 <div class="main">
     <mat-card class="example-card"> 
-        <mat-card-title>Angular + Template-Driven Forms - Required Checkbox</mat-card-title>
+        <mat-card-title>Ethics</mat-card-title>
 
             <form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
                 <mat-card-content>
+                    
+                    <mat-card-subtitle>What data will be collected?</mat-card-subtitle>
+                    <mat-card-content>
+                        Your answer to each question, the marks awarded and the results of the test cases will be collected.   
+                        This data will only be collected when you upload the file containing your answers (generated
+                        by the marker) to this website.
+
+                        When submitting the file there is also a questionnaire that I kindly ask you to fill in.
+                    </mat-card-content>
+
+                    <mat-card-subtitle>How will my data be anonymized?</mat-card-subtitle>
+                    <mat-card-content>
+                        The name of the generated file containing your answers consits of a unique and randomized 6 digit number which will be used to
+                        identify your answers. Remember the name of this file since it will be needed to request for 
+                        your data to be withdrawn as it is the only way to identify your submission.
+                                                
+                        At no point will any information that could be used to identify you such as: e-mail, name, date of birth etc. be collected.
+                    </mat-card-content>
+
+                    <mat-card-subtitle>How will my data be stored?</mat-card-subtitle>
+                    <mat-card-content>
+                        When downloading the python marker you will be assigned a unique 6 digit ID which will be stored in a private Google Sheet as a sign of your consent
+                        to participating in the experiment.
+
+                        The file containing your anonymous answers and answers to the questionnaire will be submitted and stored via <a href='https://formfacade.com/enhance/'>FormFacade</a>.
+                    </mat-card-content>
+
+                    <mat-card-subtitle>Who will see my answers?</mat-card-subtitle>
+                    <mat-card-content>
+                        As the primary researchers of this project myself (Elizabeth Hodges) and my supervisor Lilian Blot will see your anonymized answers. Your anonymous answers may
+                        also be shared with other researchers at the Univeristy of York. 
+                    </mat-card-content>   
+
+                    <mat-card-subtitle>How can I be sure downloading the marker is safe?</mat-card-subtitle>
+                    <mat-card-content>
+                        The marker is an exe file. 
+                    </mat-card-content>   
+
+                    <mat-card-subtitle>Withdrawing consent</mat-card-subtitle>
+                    <mat-card-content>
+                        You are free to withdraw your data at any point upto, and including, 20.04.22 by emailing emh566@york.ac.uk with the name of the generated download file submitted.
+                    </mat-card-content>
+
+                    <mat-card-subtitle>Questions?</mat-card-subtitle>
+                    <mat-card-content>
+                        Please email any questions to me: emh566@york.ac.uk or my supervisor Lilian Blot: lilian.blot@york.ac.uk.
+                    </mat-card-content>
+
                     <mat-checkbox for="acceptTerms" name="acceptTerms" id="acceptTerms" class="form-check-input" [(ngModel)]="model.acceptTerms" #acceptTerms="ngModel" [ngClass]="{ 'is-invalid': f.submitted && acceptTerms.invalid }" required>
                         Check <span *ngIf="f.controls['acceptTerms']?.invalid" class="invalid">*</span></mat-checkbox>    
                     
@@ -14,6 +62,5 @@
                 </mat-card-actions>
             </mat-card-content>
             </form>
-
     </mat-card>
 </div>

@@ -21,6 +21,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatRippleModule} from '@angular/material/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -28,9 +29,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     EthicsComponent,
     DownloadComponent,
     UploadComponent,
-    HomepageComponent
+    HomepageComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

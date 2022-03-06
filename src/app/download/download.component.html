@@ -1,8 +1,10 @@
 <div class="main">
     <mat-card class="example-card"> 
-        <mat-card-title>Angular + Template-Driven Forms - Required Checkbox</mat-card-title>
+        <mat-card-title>Download</mat-card-title>
                 <mat-card-content>
-                    <a href="assets/pythonMarker.exe" download="{{ getName() }}.exe">Click here</a>
-            </mat-card-content>
+                    <a href="assets/pythonMarker.exe" download="{{ downloadId }}.exe" (click)="postDownload()">Click here</a>
+                    <h2><mat-card-subtitle>Running the exe</mat-card-subtitle></h2>
+                    <p> So </p>
+                </mat-card-content>
     </mat-card>
 </div>
