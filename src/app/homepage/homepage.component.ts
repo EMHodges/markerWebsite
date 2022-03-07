@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { faT, faUpload } from '@fortawesome/free-solid-svg-icons';
+import { faUpload } from '@fortawesome/free-solid-svg-icons';
 import { faTerminal } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -25,7 +25,8 @@ export class HomepageComponent implements OnInit {
   }
 
   clickUpload() {
-    window.location.href = "https://formfaca.de/sm/Od6jLU8Ea"
+    this.router.navigate(['/upload'])
+    // window.location.href = "https://formfaca.de/sm/Od6jLU8Ea"
   }
 
 }
