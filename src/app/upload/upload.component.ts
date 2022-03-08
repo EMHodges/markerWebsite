@@ -8,24 +8,29 @@ import { Component, OnInit } from '@angular/core';
 export class UploadComponent {
 
   private GOOGLE_UPLOAD_FILE_SCRIPT = "https://script.google.com/macros/s/AKfycbypUcqv65Q36I2S2_syaGYbrvpr3FWugpgN4o4SX-OlFEPPDus7Sf3tLgWISoeoZQ8YIw/exec";
+  model: any = {};
+  private file: File | null = null;
 
   constructor() { }
 
-  onFileSelected(event: any) {
+  onFileSelected($f: any) {}
 
-    const file:File = event.target.files[0];
+  handleFileInput(event: any) {
+    this.file = event.target.files[0];
+  }
 
-    if (file) {
-        let fileName = file.name;
+  onSubmit() {
+    if (this.file) {
+        let fileName = this.file?.name;
 
         const fr = new FileReader();
-        fr.readAsArrayBuffer(file);
+        fr.readAsArrayBuffer(this.file);
         fr.onload = f => {
           
           const url = this.GOOGLE_UPLOAD_FILE_SCRIPT;
           
-          if (f.target?.result && (typeof f.target?.result != 'string')) {
-            const qs = new URLSearchParams({filename: fileName || file.name, mimeType: file.type});
+          if (f.target?.result && (typeof f.target?.result != 'string') && this.file) {
+            const qs = new URLSearchParams({filename: fileName || this.file.name, mimeType: this.file.type});
             fetch(`${url}?${qs}`, {method: "POST", body: JSON.stringify([...new Int8Array(f.target?.result)])})
             .then(res => res.json())
             .then(e => console.log(e))
