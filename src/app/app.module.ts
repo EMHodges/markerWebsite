@@ -21,7 +21,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatRippleModule} from '@angular/material/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { HttpClientModule } from '@angular/common/http'
     FormsModule,
     MatSliderModule,
     MatToolbarModule,
+    MatExpansionModule,
     MatCardModule,
     MatButtonModule,
     FontAwesomeModule,
