@@ -21,6 +21,11 @@ export class UploadComponent {
   
   id = new FormControl('', Validators.required)
 
+  text_form = new FormGroup({
+    changed: new FormControl(''),
+    comments: new FormControl('')
+  })
+
   form = new FormGroup({
     use_frequently: new FormControl(''),
     complex: new FormControl(''),
@@ -31,7 +36,11 @@ export class UploadComponent {
     imagine: new FormControl(''),
     cumbersome: new FormControl(''),
     confident: new FormControl(''),
-    learn: new FormControl('')
+    learn: new FormControl(''),
+    error: new FormControl(''),
+    interface: new FormControl(''),
+    capabilities: new FormControl(''),
+    satisfied: new FormControl(''),
   })
 
   option: {[key: string]: string} = {
@@ -44,7 +53,13 @@ export class UploadComponent {
     imagine: 'I would imagine that most people would learn to use this system very quickly',
     cumbersome: 'I found the system very cumbersome to use',
     confident: 'I felt very confident using the system',
-    learn: 'I needed to learn a lot of things before I could get going with this system.'
+    learn: 'I needed to learn a lot of things before I could get going with this system.',
+    error: 'The system gave error messages that clearly told me how to fix problems',
+    interface: 'I liked using the interface of this system',
+    capabilities: 'The system has all the functions and capabilities I expect it to have',
+    satisfied: 'Overall, I am satisfied with the system',
+    changed: 'What would you change/add to the tool?',
+    comments: 'Any other comments?'
   }
 
   constructor(private http: HttpClient) { }

@@ -24,6 +24,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import {MatIconModule} from '@angular/material/icon';
     FontAwesomeModule,
     MatCheckboxModule,
     MatGridListModule,
+    MatStepperModule,
     ReactiveFormsModule,
     MatTooltipModule,
     MatIconModule,
