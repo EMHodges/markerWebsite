@@ -24,6 +24,7 @@ export class DownloadService {
   sendDownloadEmail(id: string) {
     var formData: any = new FormData();
       formData.append("id", id);
+      console.log(formData)
       this.http.post(this.GOOGLE_EMAIL_SCRIPT, formData).subscribe(
         (response) => {
           console.log(response);

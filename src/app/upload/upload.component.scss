@@ -22,6 +22,7 @@
 .example-card {
     margin-bottom: 30px;
     min-width: 55rem;
+    max-width: 55rem;
 }
 
 .invalid {
@@ -31,3 +32,31 @@
 .success {
     color: green
 }
+
+table{
+    width: 100%;
+    table-layout: fixed;
+    column-width: 0.2rem;
+    border-collapse: separate;
+    border-spacing: 0 9px;
+    border: lightpink;
+}
+
+th{
+    font-weight: normal;
+}
+
+td {
+    text-align: center;
+}
+tbody tr:nth-child(odd){
+    background-color: rgb(248, 223, 231);
+  }
+
+.k {
+    text-align: right;
+}
+
+.wide {
+    width: 400px;
+  }

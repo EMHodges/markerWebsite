@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-upload',
@@ -7,17 +10,50 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UploadComponent {
 
+  private GOOGLE_QUESTIONNAIRE_SCRIPT = "https://script.google.com/macros/s/AKfycbwOsT62Fd6pmu4VB_82b1Xx_9JIuxRPl336uKM0fIoaajE0lRhlO7IVeA9odGW89d7H/exec"
   private GOOGLE_UPLOAD_FILE_SCRIPT = "https://script.google.com/macros/s/AKfycbypUcqv65Q36I2S2_syaGYbrvpr3FWugpgN4o4SX-OlFEPPDus7Sf3tLgWISoeoZQ8YIw/exec";
   private file: File | null = null;
   noFileSubmitted = true;
   errorMessage = ''
   successMessage = ''
   loadingMessage = ''
+  validFileNotSubmitted: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);;
+  
+  id = new FormControl('', Validators.required)
 
-  constructor() { }
+  form = new FormGroup({
+    use_frequently: new FormControl(''),
+    complex: new FormControl(''),
+    easy: new FormControl(''),
+    technical_support: new FormControl(''),
+    integrated: new FormControl(''),
+    inconsistency: new FormControl(''),
+    imagine: new FormControl(''),
+    cumbersome: new FormControl(''),
+    confident: new FormControl(''),
+    learn: new FormControl('')
+  })
+
+  option: {[key: string]: string} = {
+    use_frequently: 'I think that I would like to use this system frequently',
+    complex: 'I found the system unnecessarily complex',
+    easy: 'I though the system was easy to use',
+    technical_support: 'I think I would need the support of a technical person to be able to use this system',
+    integrated: 'I found the various functions in this system were well integrated',
+    inconsistency: 'I thought there was too much inconsistency in the system',
+    imagine: 'I would imagine that most people would learn to use this system very quickly',
+    cumbersome: 'I found the system very cumbersome to use',
+    confident: 'I felt very confident using the system',
+    learn: 'I needed to learn a lot of things before I could get going with this system.'
+  }
+
+  constructor(private http: HttpClient) { }
 
   handleFileInput(event: any) {
     this.file = event.target.files[0];
+    if (this.file?.name && this.validFile(this.file?.name)) {
+      this.validFileNotSubmitted.next(false);
+    }
   }
 
   onSubmit() {
@@ -26,6 +62,10 @@ export class UploadComponent {
       this.loading()
 
       if (this.validFile(fileName)) {
+        this.id.setValue(fileName)
+        this.validFileNotSubmitted.next(false);
+
+
         const fr = new FileReader();
         fr.readAsArrayBuffer(this.file);
         fr.onload = f => {
@@ -40,6 +80,7 @@ export class UploadComponent {
               this.successMessage = e.filename + ' was successfully uploaded';
               this.errorMessage = ''
               this.loadingMessage = ''
+              this.validFileNotSubmitted.next(false);
             })
             .catch(err => { this.errorMessage = err; this.loadingMessage = ''});
           }
@@ -60,6 +101,27 @@ export class UploadComponent {
     this.errorMessage =  ''
     this.successMessage = ''
     this.loadingMessage = 'Loading...'
+  }
+
+  submitQuestionnaire() {
+    var formData: FormData = new FormData();
+
+    Object.keys(this.form.value).forEach(key => {
+      formData.append(key, this.form.get(key)?.value)
+    })
+    formData.append("id", this.id.value)
+
+    this.http.post(this.GOOGLE_QUESTIONNAIRE_SCRIPT, formData).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+
+  
   }
 
 
