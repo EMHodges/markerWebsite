@@ -1,14 +1,29 @@
 .main {
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 100px;
 }
 
+
+  ::ng-deep .mat-card-header{
+    background-color:#E91E62;
+    padding: 5px;
+  }
+
+
+
+.main.mat-card-title:first-child {
+    text-align: center;
+}
+
 .example-card {
+    margin-bottom: 30px;
     min-width: 55rem;
 }
-  
+
 .invalid {
     color: red;
 }

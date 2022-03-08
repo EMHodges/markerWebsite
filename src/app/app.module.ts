@@ -23,6 +23,7 @@ import {MatRippleModule} from '@angular/material/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatGridListModule,
     ReactiveFormsModule,
     MatTooltipModule,
+    MatIconModule,
     MatRippleModule,
     RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules}),
     BrowserAnimationsModule
