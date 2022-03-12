@@ -114,6 +114,7 @@ export class FileUploadComponent {
     this.isFileInputted.next(false);
     this.isFileSubmitted.next(false);
     this.isFileUploaded.next(false);
+    this.uploadIdService.setFileId('')
   }
 
 }
