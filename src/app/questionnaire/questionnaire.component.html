@@ -17,16 +17,86 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <ng-container *ngFor="let control of form.controls | keyvalue">
-                        <tr>
-                            <td class='k'>{{ option[control.key] }}</td>
-                            <td><input class='u' type="radio" value="1" name={{control.key}} formControlName={{control.key}}> </td>
-                            <td><input type="radio" value="2" name={{control.key}} formControlName={{control.key}}> </td>
-                            <td><input type="radio" value="3" name={{control.key}} formControlName={{control.key}}> </td>
-                            <td><input type="radio" value="4" name={{control.key}} formControlName={{control.key}}> </td>
-                            <td><input type="radio" value="5" name={{control.key}} formControlName={{control.key}}> </td>
-                        </tr>
-                    </ng-container>
+                    <tr>
+                        <td class='k'>{{ option["use_frequently"] }}</td>
+                        <td><input class='u' type="radio" value="1" name="use_frequently" formControlName="use_frequently"> </td>
+                        <td><input type="radio" value="2" name="use_frequently" formControlName="use_frequently"> </td>
+                        <td><input type="radio" value="3" name="use_frequently" formControlName="use_frequently"> </td>
+                        <td><input type="radio" value="4" name="use_frequently" formControlName="use_frequently"> </td>
+                        <td><input type="radio" value="5" name="use_frequently" formControlName="use_frequently"> </td>
+                    </tr>
+                    <tr>
+                        <td class='k'>{{ option["complex"] }}</td>
+                        <td><input class='u' type="radio" value="1" name="complex" formControlName="complex"> </td>
+                        <td><input type="radio" value="2" name="complex" formControlName="complex"> </td>
+                        <td><input type="radio" value="3" name="complex" formControlName="complex"> </td>
+                        <td><input type="radio" value="4" name="complex" formControlName="complex"> </td>
+                        <td><input type="radio" value="5" name="complex" formControlName="complex"> </td>
+                    </tr>
+                    <tr>
+                        <td class='k'>{{ option["easy"] }}</td>
+                        <td><input class='u' type="radio" value="1" name="easy" formControlName="easy"> </td>
+                        <td><input type="radio" value="2" name="easy" formControlName="easy"> </td>
+                        <td><input type="radio" value="3" name="easy" formControlName="easy"> </td>
+                        <td><input type="radio" value="4" name="easy" formControlName="easy"> </td>
+                        <td><input type="radio" value="5" name="easy" formControlName="easy"> </td>
+                    </tr>
+                    <tr>
+                        <td class='k'>{{ option["technical_support"] }}</td>
+                        <td><input class='u' type="radio" value="1" name="technical_support" formControlName="technical_support"> </td>
+                        <td><input type="radio" value="2" name="technical_support" formControlName="technical_support"> </td>
+                        <td><input type="radio" value="3" name="technical_support" formControlName="technical_support"> </td>
+                        <td><input type="radio" value="4" name="technical_support" formControlName="technical_support"> </td>
+                        <td><input type="radio" value="5" name="technical_support" formControlName="technical_support"> </td>
+                    </tr>
+                    <tr>
+                        <td class='k'>{{ option["integrated"] }}</td>
+                        <td><input class='u' type="radio" value="1" name="integrated" formControlName="integrated"> </td>
+                        <td><input type="radio" value="2" name="integrated" formControlName="integrated"> </td>
+                        <td><input type="radio" value="3" name="integrated" formControlName="integrated"> </td>
+                        <td><input type="radio" value="4" name="integrated" formControlName="integrated"> </td>
+                        <td><input type="radio" value="5" name="integrated" formControlName="integrated"> </td>
+                    </tr>
+                    <tr>
+                        <td class='k'>{{ option["inconsistency"] }}</td>
+                        <td><input class='u' type="radio" value="1" name="inconsistency" formControlName="inconsistency"> </td>
+                        <td><input type="radio" value="2" name="inconsistency" formControlName="inconsistency"> </td>
+                        <td><input type="radio" value="3" name="inconsistency" formControlName="inconsistency"> </td>
+                        <td><input type="radio" value="4" name="inconsistency" formControlName="inconsistency"> </td>
+                        <td><input type="radio" value="5" name="inconsistency" formControlName="inconsistency"> </td>
+                    </tr>
+                    <tr>
+                        <td class='k'>{{ option["imagine"] }}</td>
+                        <td><input class='u' type="radio" value="1" name="imagine" formControlName="imagine"> </td>
+                        <td><input type="radio" value="2" name="imagine" formControlName="imagine"> </td>
+                        <td><input type="radio" value="3" name="imagine" formControlName="imagine"> </td>
+                        <td><input type="radio" value="4" name="imagine" formControlName="imagine"> </td>
+                        <td><input type="radio" value="5" name="imagine" formControlName="imagine"> </td>
+                    </tr>
+                    <tr>
+                        <td class='k'>{{ option["cumbersome"] }}</td>
+                        <td><input class='u' type="radio" value="1" name="cumbersome" formControlName="cumbersome"> </td>
+                        <td><input type="radio" value="2" name="cumbersome" formControlName="cumbersome"> </td>
+                        <td><input type="radio" value="3" name="cumbersome" formControlName="cumbersome"> </td>
+                        <td><input type="radio" value="4" name="cumbersome" formControlName="cumbersome"> </td>
+                        <td><input type="radio" value="5" name="cumbersome" formControlName="cumbersome"> </td>
+                    </tr>
+                    <tr>
+                        <td class='k'>{{ option["confident"] }}</td>
+                        <td><input class='u' type="radio" value="1" name="confident" formControlName="confident"> </td>
+                        <td><input type="radio" value="2" name="confident" formControlName="confident"> </td>
+                        <td><input type="radio" value="3" name="confident" formControlName="confident"> </td>
+                        <td><input type="radio" value="4" name="confident" formControlName="confident"> </td>
+                        <td><input type="radio" value="5" name="confident" formControlName="confident"> </td>
+                    </tr>
+                    <tr>
+                        <td class='k'>{{ option["learn"] }}</td>
+                        <td><input class='u' type="radio" value="1" name="learn" formControlName="learn"> </td>
+                        <td><input type="radio" value="2" name="learn" formControlName="learn"> </td>
+                        <td><input type="radio" value="3" name="learn" formControlName="learn"> </td>
+                        <td><input type="radio" value="4" name="learn" formControlName="learn"> </td>
+                        <td><input type="radio" value="5" name="learn" formControlName="learn"> </td>
+                    </tr>
                 </tbody>
             </table>
             <div *ngIf="!(isFileIdValid | async)">
