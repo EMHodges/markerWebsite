@@ -13,7 +13,9 @@
     padding: 5px;
   }
 
-
+.yoyo {
+    line-height: 1.6rem;
+}
 
 .main.mat-card-title:first-child {
     text-align: center;
@@ -50,11 +52,16 @@ td {
     text-align: center;
 }
 tbody tr:nth-child(odd){
-    background-color: rgb(x248, 223, 231);
+    background-color: rgb(248, 223, 231);
   }
 
 .k {
     text-align: right;
+}
+
+.file-input {
+    padding-top: 1rem;
+    text-align: center;
 }
 
 .wide {

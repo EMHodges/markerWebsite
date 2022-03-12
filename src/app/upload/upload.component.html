@@ -15,21 +15,26 @@
         <mat-card-content>
             <div>The file should be a txt file whose file name is of the format 'python-marker' followed by 6 digits e.g. python-marker123456.txt'</div>
         </mat-card-content>
-        <mat-card-content>
-            <input type="file" class="file-input" (change)="handleFileInput($event)" #fileUpload>
-        </mat-card-content>
-        <mat-card-actions>
-            <div class='invalid'>{{errorMessage}}</div>
-            <div>{{ loadingMessage }}</div>
-            <button mat-button type="submit" (click)="onSubmit()" color='secondary'>Submit</button>
-            <button mat-button type="reset">Cancel</button>
-            <div class='success'>{{ successMessage }}</div>
-        </mat-card-actions>
+        <div class="file-input">
+            <form>
+            <mat-card-content>
+                <input type="file" class="file-input" (change)="handleFileInput($event)" #fileUpload>
+            </mat-card-content>
+            <mat-card-actions class="yoyo">
+                <div class='invalid'>{{errorMessage}}</div>
+                <div>{{ loadingMessage }}</div>
+                <button class="yoyo" mat-raised-button mat-small type="submit" (click)="onSubmit()" color='primary' [disabled]="validFileNotSubmitted | async">
+                    <span [matTooltip]="(validFileNotSubmitted | async) ? 'Click choose file to upload file' : ''">Submit</span></button>
+                <button class="yoyo" mat-stroked-button type="reset" color='primary' (click)="this.form.reset()">Cancel</button>
+                <div class='success'>{{ successMessage }}</div>
+            </mat-card-actions>
+        </form>
+        </div>
         <mat-card-subtitle>Confused?</mat-card-subtitle>
         <mat-card-content>
         <mat-accordion class="example-headers-align" multi>
             <mat-expansion-panel>
-              <mat-expansion-panel-header color='secondary'>
+              <mat-expansion-panel-header color='primary'>
                 <mat-panel-title>
                   What file should I upload?
                 </mat-panel-title>
