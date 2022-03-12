@@ -25,6 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
 import {MatStepperModule} from '@angular/material/stepper';
+import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     DownloadComponent,
     UploadComponent,
     HomepageComponent,
+    QuestionnaireComponent,
+    FileUploadComponent,
   ],
   imports: [
     HttpClientModule,

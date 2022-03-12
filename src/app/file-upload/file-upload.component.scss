@@ -1,0 +1,69 @@
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+
+  ::ng-deep .mat-card-header{
+    background-color:#E91E62;
+    padding: 5px;
+  }
+
+.yoyo {
+    line-height: 1.6rem;
+}
+
+.main.mat-card-title:first-child {
+    text-align: center;
+}
+
+.example-card {
+    margin-bottom: 30px;
+    min-width: 55rem;
+    max-width: 55rem;
+}
+
+.invalid {
+    color: red;
+}
+
+.success {
+    color: green
+}
+
+table{
+    width: 100%;
+    table-layout: fixed;
+    column-width: 0.2rem;
+    border-collapse: separate;
+    border-spacing: 0 9px;
+    border: lightpink;
+}
+
+th{
+    font-weight: normal;
+}
+
+td {
+    text-align: center;
+}
+tbody tr:nth-child(odd){
+    background-color: rgb(248, 223, 231);
+  }
+
+.k {
+    text-align: right;
+}
+
+.file-input {
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.wide {
+    width: 400px;
+  }
