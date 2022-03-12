@@ -61,13 +61,14 @@ export class FileUploadComponent {
           const url = this.GOOGLE_UPLOAD_FILE_SCRIPT;
           
           if (f.target?.result && (typeof f.target?.result != 'string') && this.file) {
-            const qs = new URLSearchParams({filename: fileName || this.file.name, mimeType: this.file.type});
+            let generatedFileName = this.generateFileName(fileName)
+
+            const qs = new URLSearchParams({filename: generatedFileName, mimeType: this.file.type});
             fetch(`${url}?${qs}`, {method: "POST", body: JSON.stringify([...new Int8Array(f.target?.result)])})
             .then(res => res.json())
             .then(e => {
-              var returned_data = JSON.parse(e.data);
               if (e["result"] === 'success') {
-                this.successMessage = returned_data["filename"][0] + ' was successfully uploaded';
+                this.successMessage = fileName + ' was successfully uploaded';
                 this.errorMessage = ''
                 this.loadingMessage = ''
                 this.isFileUploaded.next(true);
@@ -98,6 +99,13 @@ export class FileUploadComponent {
 
   validFile(fileName: string) {
     return fileName.startsWith('python-marker') && fileName.endsWith('.txt')
+  }
+
+  // Append a random value to the file name. This is so you can keep track of the last file submitted
+  // for a specific Id
+  generateFileName(fileName: string): string {
+    let random_number = ("" + Math.random()).substring(2, 5)
+    return fileName.slice(0, -4)+ "-" + random_number + ".txt"
   }
 
   loading() {
