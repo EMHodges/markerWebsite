@@ -29,7 +29,7 @@
                     </ng-container>
                 </tbody>
             </table>
-            <div *ngIf="validFileNotSubmitted | async">
+            <div *ngIf="!(isFileIdValid | async)">
                 <label for="id">Name of Python file*</label>
                 <input id="id" type="text" [formControl]="id">
             </div>

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
+import { UploadIdService } from '../upload/upload-id.service';
 
 
 @Component({
@@ -20,24 +21,27 @@ export class FileUploadComponent {
   isFileSubmitted: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isFileUploaded: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   
-  id = new FormControl('', Validators.required)
   fileUpload = new FormControl('', Validators.required)
 
-  constructor() { }
+
+  constructor(private uploadIdService: UploadIdService) {}
 
   handleFileInput(event: any) {
     this.file = event.target.files[0];
     if (this.file?.name && this.validFile(this.file?.name)) {
       this.isFileInputted.next(true)
+      this.uploadIdService.setFileId(this.file.name)
       this.errorMessage = ''
     } else if (this.file?.name && !this.validFile(this.file?.name)) {
       this.errorMessage = 'Invalid file name -'
+      this.uploadIdService.setFileId('')
       if (!this.file.name.startsWith('python-marker')) {
         this.errorMessage += " check file name starts with 'python-marker'"
       } if (!this.file.name.endsWith('.txt')) {
         this.errorMessage += ' check file is a .txt file'
       }
     } else {
+      this.uploadIdService.setFileId('')
       this.errorMessage = 'Error with file. Check you have uploaded the correct one'
     }
   }
@@ -48,7 +52,6 @@ export class FileUploadComponent {
       this.loading()
 
       if (this.validFile(fileName)) {
-        this.id.setValue(fileName)
         this.isFileSubmitted.next(true)
 
         const fr = new FileReader();
