@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
@@ -11,7 +10,6 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class FileUploadComponent {
   private GOOGLE_UPLOAD_FILE_SCRIPT = "https://script.google.com/macros/s/AKfycbwjlQrzNtvxjm8GCQt6KSyYAMOWfm_qD2IIB5SvYl03rQUBLMD4-W3NTSDjVlMGwgDF/exec"
-  // private GOOGLE_UPLOAD_FILE_SCRIPT = "https://script.google.com/macros/s/AKfycbypUcqv65Q36I2S2_syaGYbrvpr3FWugpgN4o4SX-OlFEPPDus7Sf3tLgWISoeoZQ8YIw/exec";
   private file: File | null = null;
 
   errorMessage = '';
