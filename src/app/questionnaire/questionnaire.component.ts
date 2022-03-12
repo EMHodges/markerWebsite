@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { BehaviorSubject, Observable, Subject, takeUntil } from 'rxjs';
+import { BehaviorSubject, map, Observable, Subject, takeUntil } from 'rxjs';
 import { UploadIdService } from '../upload/upload-id.service';
 
 
@@ -16,6 +16,7 @@ export class QuestionnaireComponent implements OnDestroy {
   private ngUnsubscribe = new Subject();
 
   validFileNotSubmitted: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);;
+  isQuestionnaireSubmitted: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isFileIdValid: Observable<boolean>;
   
   id = new FormControl('', Validators.required)
@@ -31,6 +32,7 @@ export class QuestionnaireComponent implements OnDestroy {
     interface: new FormControl(''),
     capabilities: new FormControl(''),
     satisfied: new FormControl(''),
+    fairly_marked: new FormControl(''),
     changed: new FormControl(''),
     comments: new FormControl('')
   })
@@ -63,6 +65,7 @@ export class QuestionnaireComponent implements OnDestroy {
     interface: 'I liked using the interface of this system',
     capabilities: 'The system has all the functions and capabilities I expect it to have',
     satisfied: 'Overall, I am satisfied with the system',
+    fairly_marked: 'I believe I was marked fairly',
     changed: 'What would you change/add to the tool?',
     comments: 'Any other comments?'
   }
@@ -70,8 +73,12 @@ export class QuestionnaireComponent implements OnDestroy {
   constructor(private uploadIdService: UploadIdService, private http: HttpClient) {
     this.uploadIdService.getFileId()
       .pipe(takeUntil(this.ngUnsubscribe))
-      .pipe()
-      .subscribe(fileId => this.fileId = fileId)
+      .subscribe(fileId => {
+        this.fileId = fileId;
+        if (uploadIdService.isFileValid(fileId)) {
+          this.id.setValue(fileId)
+        }
+      })
     this.isFileIdValid = this.uploadIdService.getIsFileValid()
    }
 
@@ -81,11 +88,18 @@ export class QuestionnaireComponent implements OnDestroy {
     Object.keys(this.form.value).forEach(key => {
       formData.append(key, this.form.get(key)?.value)
     })
+
+    Object.keys(this.part_two_form.value).forEach(key => {
+      formData.append(key, this.part_two_form.get(key)?.value)
+    })
+
     formData.append("id", this.id.value)
 
     this.http.post(this.GOOGLE_QUESTIONNAIRE_SCRIPT, formData).subscribe(
-      (response) => {
-        console.log(response);
+      (response: any) => {
+        if (response['result'] === 'success') {
+          this.isQuestionnaireSubmitted.next(true)
+        }
       },
       (error) => {
         console.log(error);
@@ -96,11 +110,6 @@ export class QuestionnaireComponent implements OnDestroy {
   ngOnDestroy(){
     this.ngUnsubscribe.next(undefined);
     this.ngUnsubscribe.complete();
-  }
-
-  isValidFileId() {
-    console.log(this.fileId === '')
-    return this.fileId === ''
   }
 
 }

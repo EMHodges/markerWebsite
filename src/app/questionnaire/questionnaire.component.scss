@@ -77,4 +77,13 @@ tbody tr:nth-child(odd){
     flex-wrap: wrap;
     justify-content: right;
     align-items: right;
+    line-height: 0.2px;
+}
+
+.small-button {
+    line-height: 1.6rem;
+}
+
+.text-inputs {
+    padding-top: 1.5rem;
 }

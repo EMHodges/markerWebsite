@@ -1,6 +1,6 @@
 <mat-card class="example-card"> 
     <mat-card-title>Questionnaire</mat-card-title>
-    <mat-card-content>
+    <mat-card-content *ngIf="!(isQuestionnaireSubmitted | async); else questionnaireSubmitted">
         <mat-stepper [linear]="true" #stepper>
             <mat-step [stepControl]="form">
             <form [formGroup]="form">
@@ -101,7 +101,7 @@
                     </tbody>
                 </table>
                 <div class="action-buttons">
-                    <button mat-button matStepperNext>Next</button>
+                    <button class="small-button" mat-stroked-button matStepperNext color='primary'>Next</button>
                 </div>
                 </form>
             </mat-step>
@@ -158,19 +158,47 @@
                         </tbody>
                     </table>
 
-                    <label for="changed">{{ option["changed"] }}</label>
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <textarea matInput formControlName="changed"></textarea>
-                    </mat-form-field>
-                    
-                    <label for="comments">{{ option["comments"] }}</label>
-                    <mat-form-field class="example-full-width" appearance="fill">
+                    <table>
+                        <col span='1' class="wide">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Agree</th>
+                                <th>Disagree</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class='k'>{{ option["fairly_marked"] }}</td>
+                                <td><input class='u' type="radio" value="1" name="fairly_marked" formControlName="fairly_marked"> </td>
+                                <td><input type="radio" value="2" name="fairly_marked" formControlName="fairly_marked"> </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                        <textarea matInput formControlName="comments"></textarea>
-                    </mat-form-field>
+                    <div class="text-inputs">
+                        <label for="changed">{{ option["changed"] }}</label>
+                        <mat-form-field class="example-full-width" appearance="fill">
+                            <textarea matInput formControlName="changed"></textarea>
+                        </mat-form-field>
+                        
+                        <label for="comments">{{ option["comments"] }}</label>
+                        <mat-form-field class="example-full-width" appearance="fill">
+
+                            <textarea matInput formControlName="comments"></textarea>
+                        </mat-form-field>
+
+                        <div *ngIf="!(isFileIdValid | async)">
+                            <label for="id">Enter your 6 digit ID here: </label>
+                            <mat-form-field>
+                                <input matInput id="id" type="text" [formControl]="id">
+                            </mat-form-field>    
+                        </div>
+                    </div>
                     
                     <div>
-                        <button mat-button matStepperNext>Next</button>
+                        <button mat-stroked-button class="small-button" color='primary' matStepperPrevious>Back</button>
+                        <button mat-raised-button color='primary' [disabled]="id.invalid" (click)="submitQuestionnaire()">Submit</button>
                     </div>
                     </mat-card-content>
                 </form>
@@ -179,3 +207,7 @@
     </mat-card-content>
 </mat-card>
         
+
+<ng-template #questionnaireSubmitted>
+    Thank you for completing the questionnaire - it's much appreciated!
+</ng-template>
