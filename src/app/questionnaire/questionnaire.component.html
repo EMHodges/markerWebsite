@@ -1,119 +1,181 @@
-
-
-    <mat-card class="example-card"> 
-        <mat-card-title>Questionnaire</mat-card-title>
-        <mat-card-content>
-        <form [formGroup]="form" (ngSubmit)="submitQuestionnaire()">
-            <table>
-                <col span='1' class="wide">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Strongly disagree</th>
-                        <th>Disagree</th>
-                        <th>Neutral</th>
-                        <th>Agree</th>
-                        <th>Strongly Agree</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class='k'>{{ option["use_frequently"] }}</td>
-                        <td><input class='u' type="radio" value="1" name="use_frequently" formControlName="use_frequently"> </td>
-                        <td><input type="radio" value="2" name="use_frequently" formControlName="use_frequently"> </td>
-                        <td><input type="radio" value="3" name="use_frequently" formControlName="use_frequently"> </td>
-                        <td><input type="radio" value="4" name="use_frequently" formControlName="use_frequently"> </td>
-                        <td><input type="radio" value="5" name="use_frequently" formControlName="use_frequently"> </td>
-                    </tr>
-                    <tr>
-                        <td class='k'>{{ option["complex"] }}</td>
-                        <td><input class='u' type="radio" value="1" name="complex" formControlName="complex"> </td>
-                        <td><input type="radio" value="2" name="complex" formControlName="complex"> </td>
-                        <td><input type="radio" value="3" name="complex" formControlName="complex"> </td>
-                        <td><input type="radio" value="4" name="complex" formControlName="complex"> </td>
-                        <td><input type="radio" value="5" name="complex" formControlName="complex"> </td>
-                    </tr>
-                    <tr>
-                        <td class='k'>{{ option["easy"] }}</td>
-                        <td><input class='u' type="radio" value="1" name="easy" formControlName="easy"> </td>
-                        <td><input type="radio" value="2" name="easy" formControlName="easy"> </td>
-                        <td><input type="radio" value="3" name="easy" formControlName="easy"> </td>
-                        <td><input type="radio" value="4" name="easy" formControlName="easy"> </td>
-                        <td><input type="radio" value="5" name="easy" formControlName="easy"> </td>
-                    </tr>
-                    <tr>
-                        <td class='k'>{{ option["technical_support"] }}</td>
-                        <td><input class='u' type="radio" value="1" name="technical_support" formControlName="technical_support"> </td>
-                        <td><input type="radio" value="2" name="technical_support" formControlName="technical_support"> </td>
-                        <td><input type="radio" value="3" name="technical_support" formControlName="technical_support"> </td>
-                        <td><input type="radio" value="4" name="technical_support" formControlName="technical_support"> </td>
-                        <td><input type="radio" value="5" name="technical_support" formControlName="technical_support"> </td>
-                    </tr>
-                    <tr>
-                        <td class='k'>{{ option["integrated"] }}</td>
-                        <td><input class='u' type="radio" value="1" name="integrated" formControlName="integrated"> </td>
-                        <td><input type="radio" value="2" name="integrated" formControlName="integrated"> </td>
-                        <td><input type="radio" value="3" name="integrated" formControlName="integrated"> </td>
-                        <td><input type="radio" value="4" name="integrated" formControlName="integrated"> </td>
-                        <td><input type="radio" value="5" name="integrated" formControlName="integrated"> </td>
-                    </tr>
-                    <tr>
-                        <td class='k'>{{ option["inconsistency"] }}</td>
-                        <td><input class='u' type="radio" value="1" name="inconsistency" formControlName="inconsistency"> </td>
-                        <td><input type="radio" value="2" name="inconsistency" formControlName="inconsistency"> </td>
-                        <td><input type="radio" value="3" name="inconsistency" formControlName="inconsistency"> </td>
-                        <td><input type="radio" value="4" name="inconsistency" formControlName="inconsistency"> </td>
-                        <td><input type="radio" value="5" name="inconsistency" formControlName="inconsistency"> </td>
-                    </tr>
-                    <tr>
-                        <td class='k'>{{ option["imagine"] }}</td>
-                        <td><input class='u' type="radio" value="1" name="imagine" formControlName="imagine"> </td>
-                        <td><input type="radio" value="2" name="imagine" formControlName="imagine"> </td>
-                        <td><input type="radio" value="3" name="imagine" formControlName="imagine"> </td>
-                        <td><input type="radio" value="4" name="imagine" formControlName="imagine"> </td>
-                        <td><input type="radio" value="5" name="imagine" formControlName="imagine"> </td>
-                    </tr>
-                    <tr>
-                        <td class='k'>{{ option["cumbersome"] }}</td>
-                        <td><input class='u' type="radio" value="1" name="cumbersome" formControlName="cumbersome"> </td>
-                        <td><input type="radio" value="2" name="cumbersome" formControlName="cumbersome"> </td>
-                        <td><input type="radio" value="3" name="cumbersome" formControlName="cumbersome"> </td>
-                        <td><input type="radio" value="4" name="cumbersome" formControlName="cumbersome"> </td>
-                        <td><input type="radio" value="5" name="cumbersome" formControlName="cumbersome"> </td>
-                    </tr>
-                    <tr>
-                        <td class='k'>{{ option["confident"] }}</td>
-                        <td><input class='u' type="radio" value="1" name="confident" formControlName="confident"> </td>
-                        <td><input type="radio" value="2" name="confident" formControlName="confident"> </td>
-                        <td><input type="radio" value="3" name="confident" formControlName="confident"> </td>
-                        <td><input type="radio" value="4" name="confident" formControlName="confident"> </td>
-                        <td><input type="radio" value="5" name="confident" formControlName="confident"> </td>
-                    </tr>
-                    <tr>
-                        <td class='k'>{{ option["learn"] }}</td>
-                        <td><input class='u' type="radio" value="1" name="learn" formControlName="learn"> </td>
-                        <td><input type="radio" value="2" name="learn" formControlName="learn"> </td>
-                        <td><input type="radio" value="3" name="learn" formControlName="learn"> </td>
-                        <td><input type="radio" value="4" name="learn" formControlName="learn"> </td>
-                        <td><input type="radio" value="5" name="learn" formControlName="learn"> </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div *ngIf="!(isFileIdValid | async)">
-                <label for="id">Name of Python file*</label>
-                <input id="id" type="text" [formControl]="id">
-            </div>
-            <form [formGroup]="text_form" (ngSubmit)="submitQuestionnaire()">
-                <label for="changed">{{option['changed']}}</label>
-                <input id="changed" type="text" formControlName="changed">
-                <div>
-                    <label for="comments">{{option['comments']}}</label>
-                    <input id="comments" type="text" formControlName="comments">
+<mat-card class="example-card"> 
+    <mat-card-title>Questionnaire</mat-card-title>
+    <mat-card-content>
+        <mat-stepper [linear]="true" #stepper>
+            <mat-step [stepControl]="form">
+            <form [formGroup]="form">
+                <ng-template matStepLabel>Part 1</ng-template>
+                <table>
+                    <col span='1' class="wide">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Strongly disagree</th>
+                            <th>Disagree</th>
+                            <th>Neutral</th>
+                            <th>Agree</th>
+                            <th>Strongly Agree</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class='k'>{{ option["use_frequently"] }}</td>
+                            <td><input class='u' type="radio" value="1" name="use_frequently" formControlName="use_frequently"> </td>
+                            <td><input type="radio" value="2" name="use_frequently" formControlName="use_frequently"> </td>
+                            <td><input type="radio" value="3" name="use_frequently" formControlName="use_frequently"> </td>
+                            <td><input type="radio" value="4" name="use_frequently" formControlName="use_frequently"> </td>
+                            <td><input type="radio" value="5" name="use_frequently" formControlName="use_frequently"> </td>
+                        </tr>
+                        <tr>
+                            <td class='k'>{{ option["complex"] }}</td>
+                            <td><input class='u' type="radio" value="1" name="complex" formControlName="complex"> </td>
+                            <td><input type="radio" value="2" name="complex" formControlName="complex"> </td>
+                            <td><input type="radio" value="3" name="complex" formControlName="complex"> </td>
+                            <td><input type="radio" value="4" name="complex" formControlName="complex"> </td>
+                            <td><input type="radio" value="5" name="complex" formControlName="complex"> </td>
+                        </tr>
+                        <tr>
+                            <td class='k'>{{ option["easy"] }}</td>
+                            <td><input class='u' type="radio" value="1" name="easy" formControlName="easy"> </td>
+                            <td><input type="radio" value="2" name="easy" formControlName="easy"> </td>
+                            <td><input type="radio" value="3" name="easy" formControlName="easy"> </td>
+                            <td><input type="radio" value="4" name="easy" formControlName="easy"> </td>
+                            <td><input type="radio" value="5" name="easy" formControlName="easy"> </td>
+                        </tr>
+                        <tr>
+                            <td class='k'>{{ option["technical_support"] }}</td>
+                            <td><input class='u' type="radio" value="1" name="technical_support" formControlName="technical_support"> </td>
+                            <td><input type="radio" value="2" name="technical_support" formControlName="technical_support"> </td>
+                            <td><input type="radio" value="3" name="technical_support" formControlName="technical_support"> </td>
+                            <td><input type="radio" value="4" name="technical_support" formControlName="technical_support"> </td>
+                            <td><input type="radio" value="5" name="technical_support" formControlName="technical_support"> </td>
+                        </tr>
+                        <tr>
+                            <td class='k'>{{ option["integrated"] }}</td>
+                            <td><input class='u' type="radio" value="1" name="integrated" formControlName="integrated"> </td>
+                            <td><input type="radio" value="2" name="integrated" formControlName="integrated"> </td>
+                            <td><input type="radio" value="3" name="integrated" formControlName="integrated"> </td>
+                            <td><input type="radio" value="4" name="integrated" formControlName="integrated"> </td>
+                            <td><input type="radio" value="5" name="integrated" formControlName="integrated"> </td>
+                        </tr>
+                        <tr>
+                            <td class='k'>{{ option["inconsistency"] }}</td>
+                            <td><input class='u' type="radio" value="1" name="inconsistency" formControlName="inconsistency"> </td>
+                            <td><input type="radio" value="2" name="inconsistency" formControlName="inconsistency"> </td>
+                            <td><input type="radio" value="3" name="inconsistency" formControlName="inconsistency"> </td>
+                            <td><input type="radio" value="4" name="inconsistency" formControlName="inconsistency"> </td>
+                            <td><input type="radio" value="5" name="inconsistency" formControlName="inconsistency"> </td>
+                        </tr>
+                        <tr>
+                            <td class='k'>{{ option["imagine"] }}</td>
+                            <td><input class='u' type="radio" value="1" name="imagine" formControlName="imagine"> </td>
+                            <td><input type="radio" value="2" name="imagine" formControlName="imagine"> </td>
+                            <td><input type="radio" value="3" name="imagine" formControlName="imagine"> </td>
+                            <td><input type="radio" value="4" name="imagine" formControlName="imagine"> </td>
+                            <td><input type="radio" value="5" name="imagine" formControlName="imagine"> </td>
+                        </tr>
+                        <tr>
+                            <td class='k'>{{ option["cumbersome"] }}</td>
+                            <td><input class='u' type="radio" value="1" name="cumbersome" formControlName="cumbersome"> </td>
+                            <td><input type="radio" value="2" name="cumbersome" formControlName="cumbersome"> </td>
+                            <td><input type="radio" value="3" name="cumbersome" formControlName="cumbersome"> </td>
+                            <td><input type="radio" value="4" name="cumbersome" formControlName="cumbersome"> </td>
+                            <td><input type="radio" value="5" name="cumbersome" formControlName="cumbersome"> </td>
+                        </tr>
+                        <tr>
+                            <td class='k'>{{ option["confident"] }}</td>
+                            <td><input class='u' type="radio" value="1" name="confident" formControlName="confident"> </td>
+                            <td><input type="radio" value="2" name="confident" formControlName="confident"> </td>
+                            <td><input type="radio" value="3" name="confident" formControlName="confident"> </td>
+                            <td><input type="radio" value="4" name="confident" formControlName="confident"> </td>
+                            <td><input type="radio" value="5" name="confident" formControlName="confident"> </td>
+                        </tr>
+                        <tr>
+                            <td class='k'>{{ option["learn"] }}</td>
+                            <td><input class='u' type="radio" value="1" name="learn" formControlName="learn"> </td>
+                            <td><input type="radio" value="2" name="learn" formControlName="learn"> </td>
+                            <td><input type="radio" value="3" name="learn" formControlName="learn"> </td>
+                            <td><input type="radio" value="4" name="learn" formControlName="learn"> </td>
+                            <td><input type="radio" value="5" name="learn" formControlName="learn"> </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="action-buttons">
+                    <button mat-button matStepperNext>Next</button>
                 </div>
-            </form>
-            <button class= "btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
-        </form>
+                </form>
+            </mat-step>
+
+            <mat-step [stepControl]="part_two_form">
+                <form [formGroup]="part_two_form">
+                <ng-template matStepLabel>Part 2</ng-template>
+                    <mat-card-content>
+                    <table>
+                        <col span='1' class="wide">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Strongly disagree</th>
+                                <th>Disagree</th>
+                                <th>Neutral</th>
+                                <th>Agree</th>
+                                <th>Strongly Agree</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class='k'>{{ option["error"] }}</td>
+                                <td><input class='u' type="radio" value="1" name="error" formControlName="error"> </td>
+                                <td><input type="radio" value="2" name="error" formControlName="error"> </td>
+                                <td><input type="radio" value="3" name="error" formControlName="error"> </td>
+                                <td><input type="radio" value="4" name="error" formControlName="error"> </td>
+                                <td><input type="radio" value="5" name="error" formControlName="error"> </td>
+                            </tr>
+                            <tr>
+                                <td class='k'>{{ option["interface"] }}</td>
+                                <td><input class='u' type="radio" value="1" name="interface" formControlName="interface"> </td>
+                                <td><input type="radio" value="2" name="interface" formControlName="interface"> </td>
+                                <td><input type="radio" value="3" name="interface" formControlName="interface"> </td>
+                                <td><input type="radio" value="4" name="interface" formControlName="interface"> </td>
+                                <td><input type="radio" value="5" name="interface" formControlName="interface"> </td>
+                            </tr>
+                            <tr>
+                                <td class='k'>{{ option["capabilities"] }}</td>
+                                <td><input class='u' type="radio" value="1" name="capabilities" formControlName="capabilities"> </td>
+                                <td><input type="radio" value="2" name="capabilities" formControlName="capabilities"> </td>
+                                <td><input type="radio" value="3" name="capabilities" formControlName="capabilities"> </td>
+                                <td><input type="radio" value="4" name="capabilities" formControlName="capabilities"> </td>
+                                <td><input type="radio" value="5" name="capabilities" formControlName="capabilities"> </td>
+                            </tr>
+                            <tr>
+                                <td class='k'>{{ option["satisfied"] }}</td>
+                                <td><input class='u' type="radio" value="1" name="satisfied" formControlName="satisfied"> </td>
+                                <td><input type="radio" value="2" name="satisfied" formControlName="satisfied"> </td>
+                                <td><input type="radio" value="3" name="satisfied" formControlName="satisfied"> </td>
+                                <td><input type="radio" value="4" name="satisfied" formControlName="satisfied"> </td>
+                                <td><input type="radio" value="5" name="satisfied" formControlName="satisfied"> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <label for="changed">{{ option["changed"] }}</label>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <textarea matInput formControlName="changed"></textarea>
+                    </mat-form-field>
+                    
+                    <label for="comments">{{ option["comments"] }}</label>
+                    <mat-form-field class="example-full-width" appearance="fill">
+
+                        <textarea matInput formControlName="comments"></textarea>
+                    </mat-form-field>
+                    
+                    <div>
+                        <button mat-button matStepperNext>Next</button>
+                    </div>
+                    </mat-card-content>
+                </form>
+            </mat-step>
+        </mat-stepper>
     </mat-card-content>
-    </mat-card>
-    
-   
+</mat-card>
+        

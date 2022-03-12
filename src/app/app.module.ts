@@ -23,10 +23,11 @@ import {MatRippleModule} from '@angular/material/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import {MatExpansionModule} from '@angular/material/expansion';
-import {MatIconModule} from '@angular/material/icon';
+import {MatIcon, MatIconModule} from '@angular/material/icon';
 import {MatStepperModule} from '@angular/material/stepper';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     MatToolbarModule,
     MatExpansionModule,
     MatCardModule,
+    MatInputModule,
     MatButtonModule,
     FontAwesomeModule,
     MatCheckboxModule,

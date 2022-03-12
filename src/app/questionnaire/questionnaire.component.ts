@@ -26,6 +26,15 @@ export class QuestionnaireComponent implements OnDestroy {
     comments: new FormControl('')
   })
 
+  part_two_form = new FormGroup({
+    error: new FormControl(''),
+    interface: new FormControl(''),
+    capabilities: new FormControl(''),
+    satisfied: new FormControl(''),
+    changed: new FormControl(''),
+    comments: new FormControl('')
+  })
+
   form = new FormGroup({
     use_frequently: new FormControl(''),
     complex: new FormControl(''),
@@ -37,16 +46,12 @@ export class QuestionnaireComponent implements OnDestroy {
     cumbersome: new FormControl(''),
     confident: new FormControl(''),
     learn: new FormControl(''),
-    error: new FormControl(''),
-    interface: new FormControl(''),
-    capabilities: new FormControl(''),
-    satisfied: new FormControl(''),
   })
 
   option: {[key: string]: string} = {
     use_frequently: 'I think that I would like to use this system frequently',
     complex: 'I found the system unnecessarily complex',
-    easy: 'I though the system was easy to use',
+    easy: 'I thought the system was easy to use',
     technical_support: 'I think I would need the support of a technical person to be able to use this system',
     integrated: 'I found the various functions in this system were well integrated',
     inconsistency: 'I thought there was too much inconsistency in the system',
