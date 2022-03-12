@@ -10,8 +10,8 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./file-upload.component.scss']
 })
 export class FileUploadComponent {
-
-  private GOOGLE_UPLOAD_FILE_SCRIPT = "https://script.google.com/macros/s/AKfycbypUcqv65Q36I2S2_syaGYbrvpr3FWugpgN4o4SX-OlFEPPDus7Sf3tLgWISoeoZQ8YIw/exec";
+  private GOOGLE_UPLOAD_FILE_SCRIPT = "https://script.google.com/macros/s/AKfycbwjlQrzNtvxjm8GCQt6KSyYAMOWfm_qD2IIB5SvYl03rQUBLMD4-W3NTSDjVlMGwgDF/exec"
+  // private GOOGLE_UPLOAD_FILE_SCRIPT = "https://script.google.com/macros/s/AKfycbypUcqv65Q36I2S2_syaGYbrvpr3FWugpgN4o4SX-OlFEPPDus7Sf3tLgWISoeoZQ8YIw/exec";
   private file: File | null = null;
 
   errorMessage = '';
@@ -64,10 +64,19 @@ export class FileUploadComponent {
             fetch(`${url}?${qs}`, {method: "POST", body: JSON.stringify([...new Int8Array(f.target?.result)])})
             .then(res => res.json())
             .then(e => {
-              this.successMessage = e.filename + ' was successfully uploaded';
-              this.errorMessage = ''
-              this.loadingMessage = ''
-              this.isFileUploaded.next(true);
+              var returned_data = JSON.parse(e.data);
+              if (e["result"] === 'success') {
+                this.successMessage = returned_data["filename"][0] + ' was successfully uploaded';
+                this.errorMessage = ''
+                this.loadingMessage = ''
+                this.isFileUploaded.next(true);
+              } else {
+                this.successMessage = ''
+                this.errorMessage = 'Error saving file - please try again'
+                this.loadingMessage = ''
+                this.isFileSubmitted.next(false)
+                this.isFileUploaded.next(false)
+              }
             })
             .catch(err => { 
               this.errorMessage = err; 
