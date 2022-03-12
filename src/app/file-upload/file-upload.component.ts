@@ -100,6 +100,10 @@ export class FileUploadComponent {
     this.fileUpload.reset();
     this.errorMessage = ''
     this.loadingMessage = ''
+    this.successMessage = ''
+    this.isFileInputted.next(false);
+    this.isFileSubmitted.next(false);
+    this.isFileUploaded.next(false);
   }
 
 }

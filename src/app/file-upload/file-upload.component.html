@@ -42,7 +42,12 @@
 </mat-card>        
 
 
-<ng-template #fileUploaded class="file-input">
-    <div class='file-input success'>{{ successMessage }}</div>
-
+<ng-template #fileUploaded>
+    <mat-card-content class="file-input">
+        <div class='success'>{{ successMessage }}</div>
+        <div class='padding'>
+            <div><i>Upload the wrong file?</i></div>
+            <button mat-stroked-button class="small_button" (click)="resetFileUpload()">Upload another file</button>
+        </div>
+    </mat-card-content>
 </ng-template>

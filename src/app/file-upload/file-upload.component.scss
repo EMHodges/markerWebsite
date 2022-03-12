@@ -32,7 +32,8 @@
 }
 
 .success {
-    color: green
+    color: green;
+    font-weight: 500;
 }
 
 table{
@@ -67,3 +68,12 @@ tbody tr:nth-child(odd){
 .wide {
     width: 400px;
   }
+
+.padding {
+    padding-top: 1.35rem;
+    font-size: small;
+}
+
+.small_button {
+    line-height: 1.2rem;
+}
