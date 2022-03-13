@@ -10,15 +10,12 @@ import { faTerminal } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./homepage.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class HomepageComponent implements OnInit {
+export class HomepageComponent {
 
   faCoffee = faUpload;
   faTerminal = faTerminal;
 
-  constructor(private router: Router) { }
-
-  ngOnInit(): void {
-  }
+  constructor(private router: Router) {}
 
   clickGettingStarted() {
     this.router.navigate(['/ethics'])

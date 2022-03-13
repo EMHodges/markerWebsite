@@ -1,6 +1,6 @@
 <mat-card class="example-card"> 
     <mat-card-title>Questionnaire</mat-card-title>
-    <mat-card-content *ngIf="!(isQuestionnaireSubmitted | async); else questionnaireSubmitted">
+    <mat-card-content *ngIf="(isQuestionnaireSubmitted | async) === false; else questionnaireSubmitted">
         <mat-stepper [linear]="true" #stepper>
             <mat-step [stepControl]="form">
             <form [formGroup]="form">
@@ -185,7 +185,7 @@
                             <mat-form-field class="example-full-width" appearance="fill">
                                 <textarea matInput formControlName="comments"></textarea>
                             </mat-form-field>
-                            <div *ngIf="!(isFileIdValid | async)">
+                            <div *ngIf="(isFileIdValid | async) === false">
                                 <label for="id">Enter your 6 digit ID here<span *ngIf="id.errors?.['required']" class="required">*</span> :</label>
                                 <mat-form-field>
                                     <input matInput id="id" type="text" [formControl]="id" #inputtedid>
