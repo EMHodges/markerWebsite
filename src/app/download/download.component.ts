@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DownloadService } from './download.service';
+import { faFileDownload } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -11,7 +12,7 @@ export class DownloadComponent {
 
   public downloadId = "python-marker" + ("" + Math.random()).substring(2, 8);
   fileName = '';
-
+  faFileDownload = faFileDownload
   constructor(private downloadService: DownloadService) {}
 
   postDownload() {

@@ -1,6 +1,6 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { UploadIdService } from '../upload/upload-id.service';
 
 

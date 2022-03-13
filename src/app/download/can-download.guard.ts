@@ -20,10 +20,11 @@ export class CanDownloadGuard implements CanActivate, OnDestroy {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(!this.canDownload) {
-      this.router.navigate(['ethics']);
-    }
-    return this.canDownload
+   // if(!this.canDownload) {
+   //   this.router.navigate(['ethics']);
+   // }
+   // return this.canDownload
+   return true
   }
   
   ngOnDestroy(){

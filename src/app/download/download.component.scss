@@ -12,3 +12,27 @@
 .invalid {
     color: red;
 }
+
+.center {
+    text-align: center;
+    line-height: 4rem;
+    position: relative;
+}
+
+.download-button {
+    line-height: 3.5rem;
+    width: 18%;
+    font-size: large;
+    text-align: left;
+
+    span {
+        padding-left: 0.3rem;
+    }
+
+    .icon {
+        padding-left: 0.7rem;
+        margin-top: 7px;
+        position: absolute;
+    }
+
+}
