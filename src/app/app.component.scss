@@ -1,0 +1,17 @@
+.home-button {
+
+    justify-content: right;
+    align-items: right;
+
+}
+
+.mat-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.example-fill-remaining-space {
+    // This fills the remaining space, by using flexbox. 
+    // Every toolbar row uses a flexbox row layout.
+    flex: 1 1 auto;
+  }
