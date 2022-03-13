@@ -196,9 +196,8 @@
                     
                     <div>
                         <button mat-stroked-button class="small-button" color='primary' matStepperPrevious>Back</button>
-                        <button mat-raised-button color='primary' [disabled]="id.invalid" (click)="submitQuestionnaire()">Submit</button>
-
-
+                        <button mat-raised-button color='primary' [disabled]="id.invalid" (click)="submitQuestionnaire()">
+                            <span [matTooltip]="id.invalid ? 'Enter 6 digit ID above' : ''">Submit</span></button>
                     </div>
                     </mat-card-content>
                 </form>
