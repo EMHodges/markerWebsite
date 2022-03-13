@@ -28,6 +28,8 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import {MatInputModule} from '@angular/material/input';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import {MatInputModule} from '@angular/material/input';
     MatCardModule,
     MatInputModule,
     MatButtonModule,
+    MatDividerModule,
+    MatTabsModule,
     FontAwesomeModule,
     MatCheckboxModule,
     MatGridListModule,
