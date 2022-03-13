@@ -8,7 +8,7 @@
             <mat-tab label="Personal Computer">
                 <p>Please click the Download button to download the python marker. Note it will only run on Windows.</p>
                 <div class = "center">
-                    <a href="assets/pythonMarker.exe" download="{{ downloadId }}.exe" (click)="postDownload()">
+                    <a href="assets/pythonMarker.exe" (click)="postDownload()">
                         <button mat-raised-button color='accent' class='download-button'><span>Download</span><fa-icon class="icon" [icon]="faFileDownload" size="2x"></fa-icon></button>
                     </a>
                 </div>
@@ -32,7 +32,7 @@
             <mat-tab label="Remote Desktop University Computer">Remote Desktop University Computer</mat-tab>
           </mat-tab-group>
           <mat-card-content>
-            <a href="assets/pythonMarker2.exe" download="{{ downloadId }}.exe" (click)="postDownload()">Click here Windows 10</a>
+            <a href="assets/pythonMarker2.exe" (click)="postDownload()">Click here Windows 10</a>
             <h2><mat-card-subtitle>Running the exe</mat-card-subtitle></h2>
             <p> So </p>
         </mat-card-content>
