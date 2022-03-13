@@ -110,97 +110,101 @@
                 <form [formGroup]="part_two_form">
                 <ng-template matStepLabel>Part 2</ng-template>
                     <mat-card-content>
-                    <table>
-                        <col span='1' class="wide">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Strongly disagree</th>
-                                <th>Disagree</th>
-                                <th>Neutral</th>
-                                <th>Agree</th>
-                                <th>Strongly Agree</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class='k'>{{ option["error"] }}</td>
-                                <td><input class='u' type="radio" value="1" name="error" formControlName="error"> </td>
-                                <td><input type="radio" value="2" name="error" formControlName="error"> </td>
-                                <td><input type="radio" value="3" name="error" formControlName="error"> </td>
-                                <td><input type="radio" value="4" name="error" formControlName="error"> </td>
-                                <td><input type="radio" value="5" name="error" formControlName="error"> </td>
-                            </tr>
-                            <tr>
-                                <td class='k'>{{ option["interface"] }}</td>
-                                <td><input class='u' type="radio" value="1" name="interface" formControlName="interface"> </td>
-                                <td><input type="radio" value="2" name="interface" formControlName="interface"> </td>
-                                <td><input type="radio" value="3" name="interface" formControlName="interface"> </td>
-                                <td><input type="radio" value="4" name="interface" formControlName="interface"> </td>
-                                <td><input type="radio" value="5" name="interface" formControlName="interface"> </td>
-                            </tr>
-                            <tr>
-                                <td class='k'>{{ option["capabilities"] }}</td>
-                                <td><input class='u' type="radio" value="1" name="capabilities" formControlName="capabilities"> </td>
-                                <td><input type="radio" value="2" name="capabilities" formControlName="capabilities"> </td>
-                                <td><input type="radio" value="3" name="capabilities" formControlName="capabilities"> </td>
-                                <td><input type="radio" value="4" name="capabilities" formControlName="capabilities"> </td>
-                                <td><input type="radio" value="5" name="capabilities" formControlName="capabilities"> </td>
-                            </tr>
-                            <tr>
-                                <td class='k'>{{ option["satisfied"] }}</td>
-                                <td><input class='u' type="radio" value="1" name="satisfied" formControlName="satisfied"> </td>
-                                <td><input type="radio" value="2" name="satisfied" formControlName="satisfied"> </td>
-                                <td><input type="radio" value="3" name="satisfied" formControlName="satisfied"> </td>
-                                <td><input type="radio" value="4" name="satisfied" formControlName="satisfied"> </td>
-                                <td><input type="radio" value="5" name="satisfied" formControlName="satisfied"> </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                        <table>
+                            <col span='1' class="wide">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Strongly disagree</th>
+                                    <th>Disagree</th>
+                                    <th>Neutral</th>
+                                    <th>Agree</th>
+                                    <th>Strongly Agree</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class='k'>{{ option["error"] }}</td>
+                                    <td><input class='u' type="radio" value="1" name="error" formControlName="error"> </td>
+                                    <td><input type="radio" value="2" name="error" formControlName="error"> </td>
+                                    <td><input type="radio" value="3" name="error" formControlName="error"> </td>
+                                    <td><input type="radio" value="4" name="error" formControlName="error"> </td>
+                                    <td><input type="radio" value="5" name="error" formControlName="error"> </td>
+                                </tr>
+                                <tr>
+                                    <td class='k'>{{ option["interface"] }}</td>
+                                    <td><input class='u' type="radio" value="1" name="interface" formControlName="interface"> </td>
+                                    <td><input type="radio" value="2" name="interface" formControlName="interface"> </td>
+                                    <td><input type="radio" value="3" name="interface" formControlName="interface"> </td>
+                                    <td><input type="radio" value="4" name="interface" formControlName="interface"> </td>
+                                    <td><input type="radio" value="5" name="interface" formControlName="interface"> </td>
+                                </tr>
+                                <tr>
+                                    <td class='k'>{{ option["capabilities"] }}</td>
+                                    <td><input class='u' type="radio" value="1" name="capabilities" formControlName="capabilities"> </td>
+                                    <td><input type="radio" value="2" name="capabilities" formControlName="capabilities"> </td>
+                                    <td><input type="radio" value="3" name="capabilities" formControlName="capabilities"> </td>
+                                    <td><input type="radio" value="4" name="capabilities" formControlName="capabilities"> </td>
+                                    <td><input type="radio" value="5" name="capabilities" formControlName="capabilities"> </td>
+                                </tr>
+                                <tr>
+                                    <td class='k'>{{ option["satisfied"] }}</td>
+                                    <td><input class='u' type="radio" value="1" name="satisfied" formControlName="satisfied"> </td>
+                                    <td><input type="radio" value="2" name="satisfied" formControlName="satisfied"> </td>
+                                    <td><input type="radio" value="3" name="satisfied" formControlName="satisfied"> </td>
+                                    <td><input type="radio" value="4" name="satisfied" formControlName="satisfied"> </td>
+                                    <td><input type="radio" value="5" name="satisfied" formControlName="satisfied"> </td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-                    <table>
-                        <col span='1' class="wide">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Agree</th>
-                                <th>Disagree</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class='k'>{{ option["fairly_marked"] }}</td>
-                                <td><input class='u' type="radio" value="1" name="fairly_marked" formControlName="fairly_marked"> </td>
-                                <td><input type="radio" value="2" name="fairly_marked" formControlName="fairly_marked"> </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                        <table>
+                            <col span='1' class="wide">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Agree</th>
+                                    <th>Disagree</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class='k'>{{ option["fairly_marked"] }}</td>
+                                    <td><input class='u' type="radio" value="1" name="fairly_marked" formControlName="fairly_marked"> </td>
+                                    <td><input type="radio" value="2" name="fairly_marked" formControlName="fairly_marked"> </td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-                    <div class="text-inputs">
-                        <label for="changed">{{ option["changed"] }}</label>
-                        <mat-form-field class="example-full-width" appearance="fill">
-                            <textarea matInput formControlName="changed"></textarea>
-                        </mat-form-field>
-                        <label for="comments">{{ option["comments"] }}</label>
-                        <mat-form-field class="example-full-width" appearance="fill">
-                            <textarea matInput formControlName="comments"></textarea>
-                        </mat-form-field>
-                        <div *ngIf="!(isFileIdValid | async)">
-                            <label for="id">Enter your 6 digit ID here<span *ngIf="id.errors?.['required']" class="required">*</span> :</label>
-                            <mat-form-field>
-                                <input matInput id="id" type="text" [formControl]="id" #inputtedid>
-                            </mat-form-field>  
-                            <fa-icon [icon]="faCircleQuestion" size="2x" [matTooltip]="true? 'This is the 6 digits in the name of the python-marker exe file you downloaded (or the txt file generated by the marker) \n e.g. for python-marker123456.exe the 6 digit ID is 123456' : 'sd'"></fa-icon>
-                            <div *ngIf="id.errors?.['pattern']" class="required under"><i>Invalid ID - check you have entered a 6 digit number</i></div>  
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <div *ngIf="isLoading | async">Loading...</div>
-                        <button mat-stroked-button class="small-button" color='primary' matStepperPrevious>Back</button>
-                        <button mat-raised-button color='primary' [disabled]="id.invalid || (isLoading | async)" (click)="submitQuestionnaire()">
-                            <span [matTooltip]="id.invalid ? 'Enter 6 digit ID above' : ''">Submit</span></button>
-                    </div>
+                        <div class="text-inputs">
+                            <label for="changed">{{ option["changed"] }}</label>
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <textarea matInput formControlName="changed"></textarea>
+                            </mat-form-field>
+                            <label for="comments">{{ option["comments"] }}</label>
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <textarea matInput formControlName="comments"></textarea>
+                            </mat-form-field>
+                            <div *ngIf="!(isFileIdValid | async)">
+                                <label for="id">Enter your 6 digit ID here<span *ngIf="id.errors?.['required']" class="required">*</span> :</label>
+                                <mat-form-field>
+                                    <input matInput id="id" type="text" [formControl]="id" #inputtedid>
+                                </mat-form-field>  
+                                <fa-icon [icon]="faCircleQuestion" size="2x" [matTooltip]="true? 'This is the 6 digits in the name of the python-marker exe file you downloaded (or the txt file generated by the marker) \n e.g. for python-marker123456.exe the 6 digit ID is 123456' : 'sd'"></fa-icon>
+                                <div *ngIf="id.errors?.['pattern']" class="required under"><i>Invalid ID - check you have entered a 6 digit number</i></div>  
+                            </div>
+                        </div> 
+                        <div *ngIf="isLoading | async" class='center'>Loading...</div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td class="left"><button mat-stroked-button class="small-button" color='primary' matStepperPrevious>Back</button></td>
+                                    <td><button mat-raised-button color='primary' [disabled]="id.invalid || (isLoading | async)" (click)="submitQuestionnaire()">
+                                        <span [matTooltip]="id.invalid ? 'Enter 6 digit ID above' : ''">Submit</span></button></td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                        </table>
                     </mat-card-content>
                 </form>
             </mat-step>
