@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
-
+import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',

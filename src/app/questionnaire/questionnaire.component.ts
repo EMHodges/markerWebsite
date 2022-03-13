@@ -3,7 +3,7 @@ import { Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject, map, Observable, Subject, takeUntil } from 'rxjs';
 import { UploadIdService } from '../upload/upload-id.service';
-
+import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-questionnaire',
@@ -20,9 +20,12 @@ export class QuestionnaireComponent implements OnDestroy {
   validFileNotSubmitted: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);;
   isQuestionnaireSubmitted: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isFileIdValid: Observable<boolean>;
+  isLoading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   
   id = new FormControl('', [Validators.required, Validators.pattern('^\\d{6,6}$|^python-marker\\d{6,6}$|^python-marker\\d{6,6}.txt$|^python-marker\\d{6,6}.exe$|^pythonmarker\\d{6,6}$|^pythonmarker\\d{6,6}.txt$|^pythonmarker\\d{6,6}.exe$')])
   fileId = '';
+  faCircleQuestion = faCircleQuestion
 
   text_form = new FormGroup({
     changed: new FormControl(''),
@@ -86,6 +89,7 @@ export class QuestionnaireComponent implements OnDestroy {
 
   submitQuestionnaire() {
     var formData: FormData = new FormData();
+    this.isLoading.next(true)
 
     Object.keys(this.form.value).forEach(key => {
       formData.append(key, this.form.get(key)?.value)
@@ -102,9 +106,10 @@ export class QuestionnaireComponent implements OnDestroy {
         if (response['result'] === 'success') {
           this.isQuestionnaireSubmitted.next(true)
         }
+        this.isLoading.next(false)
       },
       (error) => {
-        console.log(error);
+        this.isLoading.next(false)
       }
     );
   }
