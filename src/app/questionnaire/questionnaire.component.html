@@ -181,24 +181,24 @@
                         <mat-form-field class="example-full-width" appearance="fill">
                             <textarea matInput formControlName="changed"></textarea>
                         </mat-form-field>
-                        
                         <label for="comments">{{ option["comments"] }}</label>
                         <mat-form-field class="example-full-width" appearance="fill">
-
                             <textarea matInput formControlName="comments"></textarea>
                         </mat-form-field>
-
                         <div *ngIf="!(isFileIdValid | async)">
-                            <label for="id">Enter your 6 digit ID here: </label>
+                            <label for="id">Enter your 6 digit ID here<span *ngIf="id.invalid" class="required">*</span> :</label>
                             <mat-form-field>
-                                <input matInput id="id" type="text" [formControl]="id">
-                            </mat-form-field>    
+                                <input matInput id="id" type="text" [formControl]="id" #inputtedid>
+                            </mat-form-field>  
+                            <div *ngIf="id.invalid">Invalid</div>  
                         </div>
                     </div>
                     
                     <div>
                         <button mat-stroked-button class="small-button" color='primary' matStepperPrevious>Back</button>
                         <button mat-raised-button color='primary' [disabled]="id.invalid" (click)="submitQuestionnaire()">Submit</button>
+
+
                     </div>
                     </mat-card-content>
                 </form>

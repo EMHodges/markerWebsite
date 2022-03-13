@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnDestroy } from '@angular/core';
+import { Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject, map, Observable, Subject, takeUntil } from 'rxjs';
 import { UploadIdService } from '../upload/upload-id.service';
@@ -15,11 +15,13 @@ export class QuestionnaireComponent implements OnDestroy {
   private GOOGLE_QUESTIONNAIRE_SCRIPT = "https://script.google.com/macros/s/AKfycbwOsT62Fd6pmu4VB_82b1Xx_9JIuxRPl336uKM0fIoaajE0lRhlO7IVeA9odGW89d7H/exec"
   private ngUnsubscribe = new Subject();
 
+  @ViewChild('inputtedid', {static: false}) input: ElementRef | undefined;
+
   validFileNotSubmitted: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);;
   isQuestionnaireSubmitted: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isFileIdValid: Observable<boolean>;
   
-  id = new FormControl('', Validators.required)
+  id = new FormControl('', [Validators.required, Validators.pattern('^\\d{6,6}$|^python-marker\\d{6,6}$|^python-marker\\d{6,6}.txt$|^python-marker\\d{6,6}.exe$|^pythonmarker\\d{6,6}$|^pythonmarker\\d{6,6}.txt$|^pythonmarker\\d{6,6}.exe$')])
   fileId = '';
 
   text_form = new FormGroup({
@@ -75,7 +77,7 @@ export class QuestionnaireComponent implements OnDestroy {
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(fileId => {
         this.fileId = fileId;
-        if (uploadIdService.isFileValid(fileId)) {
+        if (uploadIdService.isFileValid(fileId + 'll')) {
           this.id.setValue(fileId)
         }
       })
