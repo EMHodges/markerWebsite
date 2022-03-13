@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DownloadService {
 
-  private GOOGLE_EMAIL_SCRIPT = "https://script.google.com/macros/s/AKfycbyYDDBC7mCHrq_0pZ314dAQQ67qYzUzIf0epJ6wi06brsTmwr6Gcy0n0mlvRcGXnesD/exec"
+  private GOOGLE_EMAIL_SCRIPT = "https://script.google.com/macros/s/AKfycbxJXfpt3LFNQPxhhHqAWBRrNbuDz9_cwXNQFT_hWZvbUF594KFuIuRpYhWqfVTN5Cfz/exec"
   private canDownloads = new BehaviorSubject<boolean>(false);
   
   constructor(private http: HttpClient) {}
