@@ -30,6 +30,7 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatTabsModule,
     FontAwesomeModule,
     MatCheckboxModule,
+    MatButtonToggleModule,
     MatGridListModule,
     MatStepperModule,
     ReactiveFormsModule,

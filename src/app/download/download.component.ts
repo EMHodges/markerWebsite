@@ -3,6 +3,7 @@ import { DownloadService } from './download.service';
 import { faFileDownload } from '@fortawesome/free-solid-svg-icons';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-download',
@@ -28,6 +29,9 @@ export class DownloadComponent {
     })
   };
 
+  navigate() {
+    window.location.href = "http://127.0.0.1:8000"
+  }
 
   constructor(private downloadService: DownloadService, private http: HttpClient) {}
 
