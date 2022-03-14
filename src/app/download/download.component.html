@@ -8,8 +8,18 @@
             <mat-tab label="Personal Computer">
                 <p>Please click the Download button to download the python marker. Note it will only run on Windows.</p>
                 <div class = "center">
+                    <a href="assets/pythonMarker.exe" download="{{ downloadId }}.exe" (click)="postDownload()">
+                        <button mat-raised-button color='accent' class='download-button'><span>Download</span><fa-icon class="icon" [icon]="faFileDownload" size="2x"></fa-icon></button>
+                    </a>
+                </div>
+                <div class = "center">
                     <a href="https://github.com/EMHodges/markerWebsite/raw/gh-pages/assets/pythonMarker.exe" download="{{ downloadId }}.exe" (click)="postDownload()">
                         <button mat-raised-button color='accent' class='download-button'><span>Download</span><fa-icon class="icon" [icon]="faFileDownload" size="2x"></fa-icon></button>
+                    </a>
+                </div>
+                <div class = "center">
+                    <a href="https://raw.githubusercontent.com/EMHodges/markerWebsite/gh-pages/assets/pythonMarker.exe" download="{{ downloadId }}.exe" (click)="postDownload()">
+                        <button mat-raised-button color='accent' class='download-button'><span>Download2</span><fa-icon class="icon" [icon]="faFileDownload" size="2x"></fa-icon></button>
                     </a>
                 </div>
                 <mat-card-subtitle>Running the python marker</mat-card-subtitle>
@@ -31,6 +41,12 @@
             <mat-tab label="University Computer">University Computer</mat-tab>
             <mat-tab label="Remote Desktop University Computer">Remote Desktop University Computer</mat-tab>
           </mat-tab-group>
+          <button (click)="getDownload()">Click</button>
+          <div class = "center">
+            <a href="https://raw.githubusercontent.com/EMHodges/markerWebsite/gh-pages/assets/pythonMarker.exe" download="{{ downloadId }}.exe" (click)="postDownload()">
+                <button mat-raised-button color='accent' class='download-button'><span>Download2</span><fa-icon class="icon" [icon]="faFileDownload" size="2x"></fa-icon></button>
+            </a>
+        </div>
 
     </mat-card>
 
