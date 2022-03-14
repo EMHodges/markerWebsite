@@ -2,6 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 
+## Deploying the exe
+If you pull the code from github and then deploy directly the pythonMarker.exe file will be a git LSFO pointer instead of the executable file.
+
+To prevent this either download the pythonMarker exe from the github repository directly, manually copy it into the assets folder and rename it to pythonMarker.exe then deploy the build.
+
+Or build the python marker locally and copy the exe from the dist folder to the assets folder and then deploy.
+
+## Deploying to gh pages
+Run the command ```ng deploy --base-href==/markerWebsite/```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
