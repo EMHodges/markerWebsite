@@ -31,6 +31,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { DocumentationComponent } from './documentation/documentation.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     HomepageComponent,
     QuestionnaireComponent,
     FileUploadComponent,
+    DocumentationComponent,
   ],
   imports: [
     HttpClientModule,

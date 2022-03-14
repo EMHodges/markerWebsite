@@ -15,6 +15,6 @@ export class EthicsComponent {
 
   onSubmit() {
     this.downloadService.triggerDownload()
-    this.router.navigate(['/download'])
+    this.router.navigate(['/documentation'])
   }
 }

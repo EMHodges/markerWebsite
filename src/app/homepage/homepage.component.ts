@@ -21,6 +21,10 @@ export class HomepageComponent {
     this.router.navigate(['/ethics'])
   }
 
+  clickDocumentation() {
+    this.router.navigate(['/documentation'])
+  }
+
   clickUpload() {
     this.router.navigate(['/upload'])
     // window.location.href = "https://formfaca.de/sm/Od6jLU8Ea"

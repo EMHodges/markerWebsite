@@ -1,16 +1,8 @@
 <div class="container">
-    <mat-grid-list cols="2" gutterSize="9%" rowHeight="1:1" style="padding:10px">
-        <mat-grid-tile matRipple [matRippleCentered]=true (click)="clickGettingStarted()">
-            <div class="top">
-                <fa-icon class="yo" [icon]="faTerminal" size="7x"></fa-icon>
-                <h1 class="space">Getting Started</h1>
-            </div>
-        </mat-grid-tile>
-        <mat-grid-tile matRipple [matRippleCentered]=true (click)="clickUpload()">
-            <div class="top">
-                <fa-icon class="yo" [icon]="faCoffee" size="7x"></fa-icon>
-                <h1 class="space">Upload</h1>
-            </div>
-            </mat-grid-tile>
-    </mat-grid-list>
+    <button id='main_button' mat-raised-button color='accent' (click)="clickGettingStarted()">Getting Started</button>
+
+    <button id='upload_button' mat-raised-button color='primary' (click)="clickUpload()">Upload<fa-icon class="yo" [icon]="faCoffee" size="1x"></fa-icon></button>
+
+    <button id='documentation_button' mat-raised-button color='primary' (click)="clickDocumentation()">Documentation</button>
+
 </div>
