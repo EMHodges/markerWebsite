@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DownloadService } from '../download/download.service';
 
@@ -7,11 +7,15 @@ import { DownloadService } from '../download/download.service';
   templateUrl: './ethics.component.html',
   styleUrls: ['./ethics.component.scss']
 })
-export class EthicsComponent {
+export class EthicsComponent implements OnInit {
 
   constructor(private router: Router, private downloadService: DownloadService) {}
 
   model: any = {};
+
+  ngOnInit() {
+    window.scroll(0,0 )
+  }
 
   onSubmit() {
     this.downloadService.triggerDownload()

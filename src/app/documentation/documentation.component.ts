@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { faFileDownload } from '@fortawesome/free-solid-svg-icons';
-import { Observable, takeUntil } from 'rxjs';
+import { Observable } from 'rxjs';
 import { DownloadService } from '../download/download.service';
 
 @Component({
@@ -9,10 +9,9 @@ import { DownloadService } from '../download/download.service';
   templateUrl: './documentation.component.html',
   styleUrls: ['./documentation.component.scss']
 })
-export class DocumentationComponent {
+export class DocumentationComponent implements OnInit {
 
-  private canDownload: boolean = false;
-  canDown: Observable<boolean>;
+  canDownload: Observable<boolean>;
 
 
   public downloadId = "python-marker" + ("" + Math.random()).substring(2, 8);
@@ -24,8 +23,12 @@ export class DocumentationComponent {
     window.location.href = "http://127.0.0.1:8000"
   }
 
+  ngOnInit() {
+    window.scroll(0,0 )
+  }
+
   constructor(private downloadService: DownloadService, private http: HttpClient) {    
-    this.canDown = this.downloadService.canDownload()
+    this.canDownload = this.downloadService.canDownload()
   }
 
   postDownload() {
@@ -33,8 +36,6 @@ export class DocumentationComponent {
   }
 
   jumpToSection(section: string) {
-    console.log(section)
-    console.log(this.container?.nativeElement)
     this.container?.nativeElement.querySelector(`#${section}`)?.scrollIntoView()
   }
 

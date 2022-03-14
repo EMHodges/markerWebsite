@@ -10,10 +10,10 @@
         </mat-card-content>
     </mat-card>
 
-    <div *ngIf='(canDown | async)'>
+    <div *ngIf='(canDownload | async)'>
         <app-download></app-download>
     </div>
-    <div *ngIf='(canDown | async) === false'>
+    <div *ngIf='(canDownload | async) === false'>
 
     <mat-card class="example-card" id='running_python_marker'>    
         <h2>Running the python marker</h2>
