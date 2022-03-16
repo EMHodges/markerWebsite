@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { faFileDownload } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 import { DownloadService } from '../download/download.service';
@@ -27,7 +28,7 @@ export class DocumentationComponent implements OnInit {
     window.scroll(0,0 )
   }
 
-  constructor(private downloadService: DownloadService, private http: HttpClient) {    
+  constructor(private downloadService: DownloadService, private router: Router) {    
     this.canDownload = this.downloadService.canDownload()
   }
 
@@ -37,6 +38,10 @@ export class DocumentationComponent implements OnInit {
 
   jumpToSection(section: string) {
     this.container?.nativeElement.querySelector(`#${section}`)?.scrollIntoView()
+  }
+
+  navigateToEthics() {
+    this.router.navigate(['/ethics'])
   }
 
 }

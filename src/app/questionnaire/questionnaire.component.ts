@@ -80,7 +80,7 @@ export class QuestionnaireComponent implements OnDestroy {
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(fileId => {
         this.fileId = fileId;
-        if (uploadIdService.isFileValid(fileId + 'll')) {
+        if (uploadIdService.isFileValid(fileId)) {
           this.id.setValue(fileId)
         }
       })
