@@ -17,12 +17,16 @@
             <mat-card-subtitle>Your participation</mat-card-subtitle>
             <mat-card-content>You need to be over the age of 18.</mat-card-content>
             <mat-card-content>
-                Participation is completely voluntary and you are free to withdraw your data at any point upto, and including, 10.04.22 without any negative consequences. 
-                Details on how to do so is in the ‘withdrawing consent’ section below.
+                Your participation is completely voluntary and you are free to withdraw your data at any point without any negative consequences. Details on how to do so 
+                is in the ‘withdrawing consent’ section below.
             </mat-card-content> 
             <mat-card-content>
                 You will not be compensated for your participation, but your participation is very much appreciated.
             </mat-card-content>
+            <mat-card-content>
+                Time taken to participate in this research project should be at most 1 hour.
+            </mat-card-content>
+
 
             <mat-card-subtitle>What will I need to do?</mat-card-subtitle>
             <mat-card-content>
@@ -81,13 +85,13 @@
 
             <mat-card-subtitle>Withdrawing consent</mat-card-subtitle>
             <mat-card-content>
-                You are free to withdraw your data at any point and for any reason up to, and including, 10.04.22 by emailing emh566@york.ac.uk with your unique 6-digit ID 
-                (this will be included in the name of the generated download file submitted).                    
+                You are free to withdraw your data at any point by emailing emh566@york.ac.uk with the name of the generated download file submitted or your 6-digit ID (this will 
+                be generated if you agree to participate).
             </mat-card-content>
 
             <mat-card-subtitle>Questions?</mat-card-subtitle>
             <mat-card-content>
-                Please email any questions to me: emh566@york.ac.uk or my supervisor Lilian Blot: lilian.blot@york.ac.uk.
+                Please email any questions to me: emh566@york.ac.uk
             </mat-card-content>
         </mat-card-content>
     </mat-card>
@@ -102,14 +106,13 @@
                 <mat-card-content>I confirm that I have read and understood the information sheet above.</mat-card-content>
        
                 <mat-card-content>
-                    I understand that my participation is voluntary and that I am free to withdraw at any time up to and including the 10.04.2022 
-                    without any negative consequences and for any reason. In addition, I understand that I do not have to answer questions that I 
-                    wish not to answer. 
+                    I understand that my participation is voluntary and that I am free to withdraw my data at any time without
+                    any negative consequences and for any reason. In addition, I understand that I do not have to answer
+                    questions that I wish not to answer.
                 </mat-card-content>
 
                 <mat-card-content>
-                    I understand that I can ask questions at any time by emailing the primary researchers (Elizabeth Hodges: emh566@york.ac.uk, 
-                    Lilian Blot: lilian.blot@york.ac.uk) 
+                    I understand that I can ask questions at any time by emailing Elizabeth Hodges: emh566@york.ac.uk
                 </mat-card-content>
 
                 <mat-card-content>
@@ -117,9 +120,9 @@
                 </mat-card-content>
 
                 <mat-card-content>
-                    I also understand that my personal information is confidential and that my data will be anonymised. I understand that I will not 
-                    be identified or identifiable in any materials related to the research. I consent to this anonymized data being seen by the primary 
-                    researchers (Elizabeth Hodges and Lilian Blot) and, if needed, being shared with other researchers or published.                    
+                    I also understand that my personal information is confidential and that my data will be anonymised. I understand that I will not be 
+                    identified or identifiable in any materials related to the research. I consent to this anonymized data being seen by the primary 
+                    researchers (Elizabeth Hodges and Lilian Blot) and, if needed, being shared with other researchers.                  
                 </mat-card-content>
 
                 <mat-card-content>I understand that there are no known risks to participating in this study.</mat-card-content>
@@ -127,7 +130,7 @@
                 <mat-card-content>I confirm that I am aged 18 or over.</mat-card-content>   
 
                 <mat-checkbox for="acceptTerms" name="acceptTerms" id="acceptTerms" class="form-check-input" [(ngModel)]="model.acceptTerms" #acceptTerms="ngModel" [ngClass]="{ 'is-invalid': f.submitted && acceptTerms.invalid }" required>
-                    I agree <span *ngIf="f.controls['acceptTerms']?.invalid" class="invalid">*</span></mat-checkbox>    
+                    I agree to take part in this research activity<span *ngIf="f.controls['acceptTerms']?.invalid" class="invalid">*</span></mat-checkbox>    
                     
                 <mat-card-actions>
                     <button mat-button type="submit" [disabled]="f.invalid">
