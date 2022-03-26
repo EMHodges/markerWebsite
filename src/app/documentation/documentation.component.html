@@ -1,11 +1,23 @@
 <div class="main" #container>
 
     <mat-card class="example-card"> 
-        <mat-card-title>Getting Started</mat-card-title>
+        <h1>Getting Started</h1>
         <mat-card-content>
-            <p>Please click the Download button to download the python marker and follow the steps below. Note it will only run on Windows.</p>
-            <button (click)="jumpToSection('running_python_marker')">Running</button>
-            <button (click)="jumpToSection('using_marker')">Running</button>
+            <p>Please click the Download button and follow the steps below.
+                <div>
+                    <b>And remember:</b> 
+                </div>
+                <ul>
+                    <li>
+                        Please spend 30 minutes answering the question.
+                    </li>
+                    <li>
+                        Answers are completely anonymous (and really appreciated) so please submit your answers no matter how far you get
+                    </li>
+                    <li>
+                        Upload your submission to this website at the end <i>(details in the 'finished' box below)</i>
+                    </li>
+                </ul>
 
         </mat-card-content>
     </mat-card>
@@ -25,7 +37,7 @@
                             <ul>
                                 <li>Open File Explorer</li>
                                 <li>Navigate to the directory where the python marker was downloaded</li>
-                                <div><i>(If you haven't downloaded the python marker <button mat-button color='primary' (click)="navigateToEthics()">click here</button>)</i></div>
+                                <div><i>(To download the python marker please consent to participating first by<button mat-button color='primary' (click)="navigateToEthics()">clicking here</button>)</i></div>
                             </ul>
 
                         </li>
@@ -41,7 +53,7 @@
             </mat-tab>
             <mat-tab label="Microsoft Edge">
                 <mat-card-content>
-                    <span>Using Chrome is recommended</span>
+                    <span class='invalid'>*Using Chrome is recommended</span>
                     <ol>
                         <li><b>Download the Python Marker</b> 
                             <ul>
@@ -80,15 +92,56 @@
                         </a>
                     </div>
                 </mat-card-content>
-
-
             </mat-tab>
-            <mat-tab label="Firefox"></mat-tab>
           </mat-tab-group>
     </mat-card>
     </div>
+
     <mat-card class="example-card" id='using_marker'>
-        <h1>Using it</h1>
+        <h2>Using the Python Marker</h2>
+        <mat-card-content>
+            Please spend at most <b>30 minutes</b> answering the question.
+        </mat-card-content>
+        <mat-card-content>
+            You will need to submit your answers at the end <i>(how to do this is in the 'finished' box below)</i>
+        </mat-card-content>
+        <mat-card-content>
+            Do not worry if you do not finish the question or complete all of the parts, please submit your answers anyway. Remember your
+            submission is completely anonymous and I'm collecting answers to test the tool, not you!
+        </mat-card-content>
+
+        <mat-card-content>
+            <b>Opening the question</b>
+            Click the click here link to be taken to the question
+        </mat-card-content>
+        <mat-card-content>
+            <b>
+                Answering the question
+            </b>
+            Type (or paste) your answer into the answer box for each part.
+            Click the 'run test & save' button to mark your answer - you can click this as many times as you'd like
+        </mat-card-content>
+        <mat-card-content>
+            When you have finished answering please submit your answers - to do that follow the steps in the 'Finished' box below.
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="example-card" id='using_marker'>
+        <h2>Finished</h2>
+        <mat-card-content>
+        Please submit your answers to this website when you are finished otherwise your answers will not count
+        </mat-card-content>
+        <mat-card-content>
+        To do this please:   
+            <ol>
+                <li>Scroll to the bottom of the page on the automated marker and locate where it says 'Finished?'</li>
+                <li>Click the 'Save your answers button' button</li>
+                <li>Wait for 5 seconds while your answers are saved</li>
+                <li>Click the 'generate file download' button to create a file containing your answers</li>
+                <li>Click the button below and follow the instructions to upload your file</li>
+            </ol>     
+        </mat-card-content>
+        
     </mat-card>
 </div>
 

@@ -20,26 +20,62 @@ export class FileUploadComponent {
   isFileInputted: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isFileSubmitted: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isFileUploaded: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  
-  fileUpload = new FormControl('', Validators.required)
+  askForId: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  isManualIdValid:  BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  isValidFileUploaded: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
+  fileUpload = new FormControl('', Validators.required)
+  manualId = new FormControl('', Validators.pattern('^\\d{6,6}$'))
 
   constructor(private uploadIdService: UploadIdService) {}
 
   handleFileInput(event: any) {
+    this.isFileInputted.next(true)
     this.file = event.target.files[0];
     if (this.file?.name && this.validFile(this.file?.name)) {
-      this.isFileInputted.next(true)
+      this.isValidFileUploaded.next(true)
       this.errorMessage = ''
-    } else if (this.file?.name && !this.validFile(this.file?.name)) {
-      this.errorMessage = 'Invalid file name -'
+    } else if (this.file?.name && !this.validFile(this.file?.name) ) {
+      this.errorMessage = ''
+      this.isValidFileUploaded.next(false)
       if (!this.file.name.startsWith('python-marker')) {
+        if (this.errorMessage == '') {
+          this.errorMessage += 'Invalid file name -'
+        }
         this.errorMessage += " check file name starts with 'python-marker'"
       } if (!this.file.name.endsWith('.txt')) {
-        this.errorMessage += ' check file is a .txt file'
+          if (this.errorMessage == '') {
+            this.errorMessage += 'Invalid file name -'
+          }
+          this.errorMessage += ' check file is a .txt file'
       }
     } else {
+      this.isValidFileUploaded.next(false)
       this.errorMessage = 'Error with file. Check you have uploaded the correct one'
+    }
+  }
+
+  but() {
+    console.log(this.isFileInputted.value === false)
+    console.log(this.isValidFileUploaded.value === false)
+    console.log((this.isFileInputted.value === false || (this.isValidFileUploaded.value === false && this.isFileInputted.value === true)))
+  }
+
+  handleDigitInput(event: any) {
+    console.log('new')
+    console.log(this.manualId.value)
+    console.log((this.isFileInputted.value) === false)
+    console.log(this.isManualIdValid.value == true)
+    console.log(this.isFileSubmitted.value) 
+
+    console.log((this.isFileInputted.value) === false || (this.isManualIdValid.value) === true || (this.isFileSubmitted.value) )
+    if (this.manualId.value === '' || this.manualId.errors?.['pattern']) {
+      console.log('in if')
+      this.isManualIdValid.next(false)
+    } else {
+      console.log('in else')
+      this.isManualIdValid.next(true)
+      console.log(this.isManualIdValid.value)
     }
   }
 
@@ -77,7 +113,6 @@ export class FileUploadComponent {
                 this.isFileSubmitted.next(false)
                 this.isFileUploaded.next(false)
                 this.uploadIdService.setFileId('')
-
               }
             })
             .catch(err => { 
@@ -86,7 +121,8 @@ export class FileUploadComponent {
               this.successMessage = '';
               this.isFileSubmitted.next(false);
               this.isFileUploaded.next(false);
-              this.uploadIdService.setFileId('')
+              this.uploadIdService.setFileId('');
+              this.isValidFileUploaded.next(false)
             });
           }
         }
@@ -100,8 +136,26 @@ export class FileUploadComponent {
   }
 
   validFile(fileName: string) {
-    return fileName.startsWith('python-marker') && fileName.endsWith('.txt')
+    if (fileName.startsWith('python-marker') && fileName.endsWith('.txt')) {
+      let g = fileName
+      g = g.replace('python-marker', '')
+      g = g.replace('.txt', '')
+      if (g.length == 6 && this.isOnlyDigits(g)) {
+        this.askForId.next(false)
+        return true
+      } else {
+        this.askForId.next(true)
+        this.errorMessage = ''
+        return false
+      }
+    }
+    this.askForId.next(false)
+    return false
   }
+
+  isOnlyDigits(value: string) {
+    return /^\d+$/.test(value);
+}
 
   // Append a random value to the file name. This is so you can keep track of the last file submitted
   // for a specific Id
@@ -125,6 +179,7 @@ export class FileUploadComponent {
     this.isFileSubmitted.next(false);
     this.isFileUploaded.next(false);
     this.uploadIdService.setFileId('')
+    this.isValidFileUploaded.next(false)
   }
 
 }
