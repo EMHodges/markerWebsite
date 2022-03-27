@@ -147,9 +147,14 @@
 <ng-template #run_python_marker>
     <li><b>Run the python marker</b>
         <ul>
-            <li>Type <b>'.\{{downloadId}}.exe runserver --noreload'</b> and press enter key 
+            <li>Type (or copy and paste) the following:
+                <ul>
+                    <li><b>.\{{downloadId}}.exe runserver --noreload</b></li>
+                </ul>
+            </li>
+            <li>Press Enter key - e.g.
                 <img src="assets/download_screenshots/chrome/powershell_command.png">
-                <i>(replace .\python-marker123456 with .\{{downloadId}})</i>
+                <i>(replace .\python-marker123456 with .\{{downloadId}} - and remember the <b>.</b> at the beginning!)</i>
             </li>
             <li>Wait until you see some text that looks similar to this:
                 <img src="assets/download_screenshots/chrome/powershell_complete.png">
