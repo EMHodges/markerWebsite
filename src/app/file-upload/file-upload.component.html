@@ -6,27 +6,30 @@
 
         <mat-card-content>
             <div>The file should be a txt file whose file name is of the format 'python-marker' followed by 6 digits e.g. python-marker123456.txt'</div>
+            <br>
+            <div>If your generated file does not contain 6 digits, e.g. python-marker.txt, please upload this and input your 6 digit id. Your 6 digit id is the 6 
+                digits in the name of the python-marker you downloaded. E.g. the 6 digit id for python-marker345678.exe is 345678
+            </div>
         </mat-card-content>
         <div class="file-input" *ngIf="(isFileUploaded | async) === false; else fileUploaded">
             <mat-card-content>
                 <input type="file" class="file-input" (change)="handleFileInput($event)" [formControl]="fileUpload">
             </mat-card-content>
             <div *ngIf="(askForId | async) === true">
-                <div>Could not determine file ID</div>
+                <div class="invalid">Could not determine file ID</div>
                 <div>Please input 6 digit id: <input type="text" (keyup)="handleDigitInput($event)" [formControl]="manualId"></div>
                 <div *ngIf="manualId.errors?.['pattern']" class="required under"><i>Invalid ID - check you have entered a 6 digit number</i></div>  
             </div>
             <mat-card-actions class="yoyo">
                 <div class='invalid'>{{errorMessage}}</div>
                 <div>{{ loadingMessage }}</div>
-                <button class="yoyo" mat-raised-button mat-small type="submit" (click)="onSubmit()" color='primary' [disabled]="((this.isFileInputted.value === false || (this.isValidFileUploaded.value === false && this.isFileInputted.value === true)))  
-                                                                                                                                || (isFileSubmitted | async) ">
+                <button class="yoyo" mat-raised-button mat-small type="submit" (click)="onSubmit()" color='primary' [disabled]="!(this.isValidFileUploaded.value || (this.askForId.value && this.isManualIdValid.value)) || (isFileSubmitted | async) ">
                     <span [matTooltip]="(isFileInputted | async) === false ? 'Click choose file to upload file' : ''">Submit</span></button>
                 <button class="yoyo" mat-stroked-button type="reset" color='primary' (click)="resetFileUpload()" [disabled]="isFileSubmitted | async">Cancel</button>
                 <div class='success'>{{ successMessage }}</div>
             </mat-card-actions>
         </div>
-        <button (click)="but()">Bu</button>
+
         <mat-card-subtitle>Confused?</mat-card-subtitle>
         <mat-card-content>
         <mat-accordion class="example-headers-align" multi>
