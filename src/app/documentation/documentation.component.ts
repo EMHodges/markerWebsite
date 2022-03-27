@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { faFileDownload } from '@fortawesome/free-solid-svg-icons';
@@ -44,6 +43,9 @@ export class DocumentationComponent implements OnInit {
     this.router.navigate(['/ethics'])
   }
 
+  navigateToUpload() {
+    this.router.navigate(['/upload'])
+  }
+
 }
 
-// curl -H "Accept: application/vnd.github.v3.raw" https://raw.githubusercontent.com/EMHodges/markerWebsite/gh-pages/assets/pythonMarker.exe --output hello.exe
