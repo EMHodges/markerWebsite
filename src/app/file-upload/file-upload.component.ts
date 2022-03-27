@@ -143,7 +143,7 @@ export class FileUploadComponent {
                 this.errorMessage = ''
                 this.loadingMessage = ''
                 this.isFileUploaded.next(true);
-                this.uploadIdService.setFileId(fileName)
+                this.uploadIdService.setFileId(fn)
               } else {
                 this.successMessage = ''
                 this.errorMessage = 'Error saving file - please try again'
