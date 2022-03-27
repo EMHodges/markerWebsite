@@ -12,7 +12,7 @@ import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons';
 })
 export class QuestionnaireComponent implements OnDestroy {
 
-  private GOOGLE_QUESTIONNAIRE_SCRIPT = "https://script.google.com/macros/s/AKfycbwOsT62Fd6pmu4VB_82b1Xx_9JIuxRPl336uKM0fIoaajE0lRhlO7IVeA9odGW89d7H/exec"
+  private GOOGLE_QUESTIONNAIRE_SCRIPT = "https://script.google.com/macros/s/AKfycbx48U-ic2gpAVaqh1d7doKiKH2fM5f9l3BR8GIwCs_G-szj5R0k5WaCb-PURsAWX9yctg/exec"
   private ngUnsubscribe = new Subject();
 
   @ViewChild('inputtedid', {static: false}) input: ElementRef | undefined;
