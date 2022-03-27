@@ -83,23 +83,24 @@
             Please spend at most <b>30 minutes</b> answering the question.
         </mat-card-content>
         <mat-card-content>
-            You will need to submit your answers at the end <i>(how to do this is in the 'finished' box below)</i>
-        </mat-card-content>
-        <mat-card-content>
-            Do not worry if you do not finish the question or complete all of the parts, please submit your answers anyway. Remember your
+            Do not worry if you do not finish the question or complete all of the parts, please submit your answers to the website anyway. Remember your
             submission is completely anonymous and I'm collecting answers to test the tool, not you!
         </mat-card-content>
 
         <mat-card-content>
             <b>Opening the question</b>
-            Click the click here link to be taken to the question
+            <div>Click the <i>Click here to get started!'</i> link on the homepage (<a href="http://127.0.0.1:8000">http://127.0.0.1:800</a>/') to be taken to the question</div>
+            <img src="assets/using_python_marker/click_to_get_started.png">
         </mat-card-content>
         <mat-card-content>
             <b>
                 Answering the question
             </b>
+            <div>
             Type (or paste) your answer into the answer box for each part.
             Click the 'run test & save' button to mark your answer - you can click this as many times as you'd like
+            <img src="assets/using_python_marker/run_test.png">
+        </div>
         </mat-card-content>
         <mat-card-content>
             When you have finished answering please submit your answers - to do that follow the steps in the 'Finished' box below.
@@ -114,11 +115,13 @@
         <mat-card-content>
         To do this please:   
             <ol>
-                <li>Scroll to the bottom of the page on the automated marker and locate where it says 'Finished?'</li>
-                <li>Click the 'Save your answers button' button</li>
+                <li>Scroll to the bottom of the page on the automated marker and locate where it says 'Finished?'
+                    <img src="assets/finished/finished.png">
+                </li>
+                <li>Click the 'Save your answers' button</li>
                 <li>Wait for 5 seconds while your answers are saved</li>
-                <li>Click the 'generate file download' button to create a file containing your answers</li>
-                <li>Click the button below and follow the instructions to upload your file</li>
+                <li>Click the 'Click here to download file' link to create a file containing your answers</li>
+                <li>Click the 'Click here to upload file link' or click the button below and follow the instructions to upload your file</li>
             </ol>  
             <div class = "center">
                     <button mat-raised-button color='primary' (click)="navigateToUpload()">Upload</button>
