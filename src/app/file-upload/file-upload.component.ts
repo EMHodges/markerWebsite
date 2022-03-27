@@ -106,7 +106,7 @@ export class FileUploadComponent {
                 this.errorMessage = 'Error saving file - please try again'
                 this.loadingMessage = ''
                 this.isFileSubmitted.next(false)
-                this.isFileUploaded.next(false)
+                this.isFileUploaded.next(false)                
                 this.uploadIdService.setFileId('')
               }
             })
@@ -180,13 +180,28 @@ export class FileUploadComponent {
 
   validFile(fileName: string) {
     if (fileName.startsWith('python-marker') && fileName.endsWith('.txt')) {
+      const six_digits = new RegExp(`\\d{6}`)
       let g = fileName
       g = g.replace('python-marker', '')
       g = g.replace('.txt', '')
       if (g.length == 6 && this.isOnlyDigits(g)) {
         this.askForId.next(false)
         return true
-      } else {
+      } else if (six_digits.test(fileName)) {
+        console.log('testing 6 digits')
+        const x = fileName.match(six_digits)?.[0]
+        console.log(fileName.match(six_digits)?.[0])
+        if (typeof x === undefined) {
+          this.askForId.next(true)
+        } else {
+          this.manualId.setValue(x)
+          this.isManualIdValid.next(true)
+          console.log(this.manualId.value)
+          this.askForId.next(false)
+        }
+        return false
+      }
+      else {
         this.askForId.next(true)
         this.errorMessage = ''
         return false
@@ -222,6 +237,8 @@ export class FileUploadComponent {
     this.isFileSubmitted.next(false);
     this.isFileUploaded.next(false);
     this.uploadIdService.setFileId('')
+    this.isManualIdValid.next(false);
+    this.manualId.setValue('')
     this.isValidFileUploaded.next(false)
     this.askForId.next(false)
   }

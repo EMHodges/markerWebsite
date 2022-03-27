@@ -23,7 +23,7 @@
             <mat-card-actions class="yoyo">
                 <div class='invalid'>{{errorMessage}}</div>
                 <div>{{ loadingMessage }}</div>
-                <button class="yoyo" mat-raised-button mat-small type="submit" (click)="onSubmit()" color='primary' [disabled]="!(this.isValidFileUploaded.value || (this.askForId.value && this.isManualIdValid.value)) || (isFileSubmitted | async) ">
+                <button class="yoyo" mat-raised-button mat-small type="submit" (click)="onSubmit()" color='primary' [disabled]="!(this.isValidFileUploaded.value || (this.askForId.value && this.isManualIdValid.value) || this.isManualIdValid.value) || (isFileSubmitted | async) ">
                     <span [matTooltip]="(isFileInputted | async) === false ? 'Click choose file to upload file' : ''">Submit</span></button>
                 <button class="yoyo" mat-stroked-button type="reset" color='primary' (click)="resetFileUpload()" [disabled]="isFileSubmitted | async">Cancel</button>
                 <div class='success'>{{ successMessage }}</div>
