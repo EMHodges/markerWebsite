@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { DownloadService } from './download.service';
 import { faFileDownload } from '@fortawesome/free-solid-svg-icons';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-download',
@@ -13,6 +14,7 @@ export class DownloadComponent {
   public downloadId = "python-marker" + ("" + Math.random()).substring(2, 8);
   fileName = '';
   faFileDownload = faFileDownload
+  isWindows: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   @ViewChild('container', {static: false}) container: ElementRef<HTMLElement> | undefined;
 
   navigate() {
@@ -29,6 +31,14 @@ export class DownloadComponent {
     console.log(section)
     console.log(this.container?.nativeElement)
     this.container?.nativeElement.querySelector(`#${section}`)?.scrollIntoView()
+  }
+
+  switchWindows() {
+    this.isWindows.next(false);
+  }
+
+  switchMac() {
+    this.isWindows.next(true);
   }
 
 }
