@@ -27,17 +27,23 @@
     </div>
     <div *ngIf='(canDownload | async) === false'>
 
-    <mat-card class="example-card" id='running_python_marker'>    
-        <h2>Running the python marker</h2>
-        <mat-tab-group mat-align-tabs="start">
-            <mat-tab label="Chrome">
+    <mat-card class="example-card" id='running_python_marker' *ngIf="isWindows.value; else run_python_marker_mac">    
+        <h2>Running the python marker on Windows</h2>
+            <i>on Mac?</i><button mat-raised-button color='accent' (click)="switchWindows()" class="yo">Click Here For Mac</button>
                 <mat-card-content>
+                    <ul>
+                        <li>
+                            These instructions are for if you have already downloaded the Python Marker and wish to run it.
+                        </li>
+                        <li>
+                            To download the Python Marker please consent to participating first by<button mat-button color='primary' (click)="navigateToEthics()">clicking here</button>
+                        </li>
+                    </ul>
                     <ol>
                         <li><b>Navigate to where the python marker was downloaded to</b>
                             <ul>
                                 <li>Open File Explorer</li>
                                 <li>Navigate to the directory where the python marker was downloaded</li>
-                                <div><i>(To download the python marker please consent to participating first by<button mat-button color='primary' (click)="navigateToEthics()">clicking here</button>)</i></div>
                             </ul>
 
                         </li>
@@ -50,30 +56,7 @@
                         </a>
                     </div>
                 </mat-card-content>
-            </mat-tab>
-            <mat-tab label="Microsoft Edge">
-                <mat-card-content>
-                    <span class='invalid'>*Using Chrome is recommended</span>
-                    <ol>
-                        <li><b>Navigate to where the python marker was downloaded to</b>
-                            <ul>
-                                <li>Open File Explorer</li>
-                                <li>Navigate to the directory where the python marker was downloaded</li>
-                                <div><i>(To download the python marker please consent to participating first by<button mat-button color='primary' (click)="navigateToEthics()">clicking here</button>)</i></div>
-                            </ul>
-
-                        </li>
-                        <ng-container *ngTemplateOutlet="open_powershell"></ng-container>
-                        <ng-container *ngTemplateOutlet="run_python_marker"></ng-container>
-                    </ol>
-                    <div class = "center">
-                        <a href="http://127.0.0.1:8000">
-                            <button mat-raised-button color='primary'>Run</button>
-                        </a>
-                    </div>
-                </mat-card-content>
-            </mat-tab>
-          </mat-tab-group>
+                
     </mat-card>
     </div>
 
@@ -168,4 +151,74 @@
             <li>Navigate to <a href='http://127.0.0.1:8000'>'http:127.0.0.1:8000'</a> or click the run button below to open the python marker</li>
         </ul>
     </li>
+</ng-template>
+
+
+
+<ng-template #run_python_marker_mac>
+    <mat-card class="example-card" id='running_python_marker2'>    
+        <h2>Running the python marker on Mac</h2>
+        <i>on Windows?</i><button mat-raised-button color='accent' (click)="switchMac()" class="yo">Click Here For Windows</button>
+        <mat-card-content>
+
+            <ul>
+                <li>
+                    These instructions are for if you have already downloaded the Python Marker and wish to run it.
+                </li>
+                <li>
+                    To download the Python Marker please consent to participating first by<button mat-button color='primary' (click)="navigateToEthics()">clicking here</button>
+                </li>
+            </ul>
+            <ol>
+                <li><b>Setup the Python Marker</b>
+                    <ul>
+                        <li>Open launchpad and search for <b>terminal</b></li>
+                        <li>Click on the terminal icon to open the terminal
+                            <img src="assets/mac/terminal.png">
+                        </li>
+                        <li>Once in the terminal type the following replacing %downloadID% with your download ID - press enter key between each line:
+                            <ul>
+                                <li><b>cd ~/Downloads</b></li>
+                                <li><b>
+                                    chmod 777 %downloadID%</b>
+                                </li>
+                                <li><b>
+                                    xattr -dr com.apple.quarantine "%downloadID%"</b>
+                                </li>
+                            </ul>
+                            <br>
+                        Your terminal window should look like the below, though with your downloadID instead of python-marker123456: 
+                            <img src="assets/mac/mac_command.png">
+                        </li>
+                    </ul>
+                    <br>  
+                </li>
+                <li><b>Run the python marker</b>
+                    <ul>
+                        <li>Type (or copy and paste) the following, then press Enter:
+                            <ul>
+                                <li><b>./%downloadID% runserver --noreload</b></li>
+                            </ul>
+                        </li>
+                        <li>Press Enter key - e.g.
+                            <img src="assets/mac/running.png">
+                            <i>(replace python-marker123456 with your downloadID)</i>
+                        </li>
+                        <li>Wait until you see some text that looks similar to this:
+                            <img src="assets/mac/text.png">
+                        </li>
+                        <li>Navigate to <a href='http://127.0.0.1:8000'>'http:127.0.0.1:8000'</a> or click the run button below to open the python marker</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class = "center">
+                <a href="http://127.0.0.1:8000">
+                    <button mat-raised-button color='primary'>Run</button>
+                </a>
+            </div>
+        </mat-card-content>
+
+ 
+    </mat-card>
+
 </ng-template>

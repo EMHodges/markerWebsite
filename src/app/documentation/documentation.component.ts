@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { faFileDownload } from '@fortawesome/free-solid-svg-icons';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { DownloadService } from '../download/download.service';
 
 @Component({
@@ -17,6 +17,8 @@ export class DocumentationComponent implements OnInit {
   public downloadId = "python-marker" + ("" + Math.random()).substring(2, 8);
   fileName = '';
   faFileDownload = faFileDownload
+  isWindows: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+
   @ViewChild('container', {static: false}) container: ElementRef<HTMLElement> | undefined;
 
   navigate() {
@@ -45,6 +47,14 @@ export class DocumentationComponent implements OnInit {
 
   navigateToUpload() {
     this.router.navigate(['/upload'])
+  }
+
+  switchWindows() {
+    this.isWindows.next(false);
+  }
+
+  switchMac() {
+    this.isWindows.next(true);
   }
 
 }

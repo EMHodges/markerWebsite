@@ -1,11 +1,13 @@
 
     <mat-card class="example-card" id='running_python_marker' *ngIf="isWindows.value; else run_python_marker_mac">    
-        <h2>Running the python marker</h2>
+        <h2>Running the python marker on Windows</h2>
+        <i>on Mac?</i><button mat-raised-button color='primary' (click)="switchWindows()" class="yo">Click Here For Mac</button>
+
         <mat-tab-group mat-align-tabs="start">
             <mat-tab label="Chrome">
                 <mat-card-content>
                     <ol>
-                        <li><b>Download the Python Marker for Windows</b> - On Mac? <button mat-raised-button color='primary' (click)="switchWindows()">Click here</button>
+                        <li><b>Download the Python Marker for Windows</b> - see above for Mac instructions
                             <ul>
                                 <li>Click the Download button - do not open the downloaded file 
                                     <div class = "center">
@@ -117,10 +119,12 @@
 
 <ng-template #run_python_marker_mac>
     <mat-card class="example-card" id='running_python_marker2'>    
-        <h2>Running the python marker</h2>
+        <h2>Running the python marker on Mac</h2>
+        <i>on Windows?</i><button mat-raised-button color='primary' (click)="switchMac()" class="yo">Click Here For Windows</button>
+
                 <mat-card-content>
                     <ol>
-                        <li><b>Download the Python Marker for Mac</b> - On Windows? <button mat-raised-button color='primary' (click)="switchMac()">Click here</button>
+                        <li><b>Download the Python Marker for Mac</b> - see above for Windows instructions
                             <ul>
                                 <li>Click the Download button for your Mac (Macs with the M1 chips are ARM64, others are x86 - if in doubt choose x86)
                                     <div class = "buttons-center">
