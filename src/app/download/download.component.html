@@ -16,7 +16,7 @@
                                         </a>
                                     </div>
                                 </li>
-                                <li>Click the chevron to the right of the downloaded file (bottom left of the page) and click 'Show in folder' to open file explorer</li>
+                                <li>Click the chevron to the right of the downloaded file (bottom left of the page) and click 'Show in folder' to open File Explorer</li>
 
                                     <div>
                                         <img src="assets/download_screenshots/chrome/show_in_folder.png">
@@ -35,7 +35,7 @@
             </mat-tab>
             <mat-tab label="Microsoft Edge">
                 <mat-card-content>
-                    <span>Using Chrome is recommended</span>
+                    <span class="invalid">*Using Chrome is recommended</span>
                     <ol>
                         <li><b>Download the Python Marker</b> 
                             <ul>
@@ -86,12 +86,14 @@
     <li><b>Open powershell</b>
         <ul>
             <li>
-                In File Explorer highlight the text in the address bar (click on the white space to the left of the chevron in the address bar) - the text should turn blue 
+                In File Explorer highlight the text in the address bar (click on the white space to the left of the chevron in the address bar) - the text should turn blue as in the image below: 
                 <img src="assets/download_screenshots/chrome/highlight_address_bar.png">
             </li>
-            <li>Type 'powershell' and press the 'enter' key to open powershell
+            <li>Type <b>powershell</b> into the address bar (as in the image below) and then press Enter to open powershell:
                 <img src="assets/download_screenshots/chrome/type_powershell.png">
             </li>
+            A powershell window should open - it should look similar to the image below:
+                <img src="assets/download_screenshots/empty_powershell.png">
         </ul>
     </li>
 </ng-template>
@@ -99,19 +101,20 @@
 <ng-template #run_python_marker>
     <li><b>Run the python marker</b>
         <ul>
-            <li>Type (or copy and paste) the following:
+            <li>Type (or copy and paste) the command below and then press Enter:
                 <ul>
                     <li><b>.\{{downloadId}}.exe runserver --noreload</b></li>
                 </ul>
-            </li>
-            <li>Press Enter key - e.g.
+                <br>
+                <div>
+                <i>Your powershell window should look like the image below though with </i>.\{{downloadId}}<i> instead of </i>.\python-marker123456
                 <img src="assets/download_screenshots/chrome/powershell_command.png">
-                <i>(replace .\python-marker123456 with .\{{downloadId}} - and remember the <b>.</b> at the beginning!)</i>
+            </div>
             </li>
-            <li>Wait until you see some text that looks similar to this:
+            <li>Wait until you see some text that looks similar to that in the image below:
                 <img src="assets/download_screenshots/chrome/powershell_complete.png">
             </li>
-            <li>Navigate to <a href='http://127.0.0.1:8000'>'http:127.0.0.1:8000'</a> or click the run button below to open the python marker</li>
+            <li>Click the run button below to open the python marker (or navigate to <a href='http://127.0.0.1:8000'>'http:127.0.0.1:8000'</a>)
         </ul>
     </li>
 </ng-template>
@@ -139,11 +142,17 @@
                             </ul>
                         <li><b>Setup the Python Marker</b>
                             <ul>
-                                <li>Open launchpad and search for <b>terminal</b></li>
-                                <li>Click on the terminal icon to open the terminal
-                                    <img src="assets/mac/terminal.png">
-                                </li>
-                                <li>Once in the terminal type (or copy and paste) - press enter key between each line:
+                                <li>Open terminal</li>
+                                One way to do this is to:
+                                <ul>
+                                    <li>Open launchpad and search for <b>terminal</b></li>
+                                    <li>Click on the terminal icon (it looks like the icon below) to open the terminal
+                                        <img src="assets/mac/terminal.png">
+                                    </li>
+                                    The terminal window should look similar to the image below:
+                                    <img src="assets/mac/empty_terminal.png">
+                                </ul>
+                                <li>Once in the terminal type (or copy and paste) the commands below - press Enter between each command:
                                     <ul>
                                         <li><b>cd ~/Downloads</b></li>
                                         <li><b>
@@ -154,31 +163,35 @@
                                         </li>
                                     </ul>
                                     <br>
-                                Your terminal window should look like the below, though with {{downloadId}} instead of python-marker123456: 
+                                    <div>
+                                <i>Your terminal window should look like the image below, though with {{downloadId}} instead of python-marker123456: </i>
                                     <img src="assets/mac/mac_command.png">
+                                </div>
                                 </li>
                             </ul>
                             <br>  
                             <div><i>For interest - the second command gives you the permission to run the python marker, the third command 
-                                lets you run the python marker, without this apple will complain that the file has come 
+                                lets you run the python marker, without this Apple will complain that the file has come 
                                 from an unidentified developer and won't let you run it
                             </i></div>   
                         </li>
                         <li><b>Run the python marker</b>
                             <ul>
-                                <li>Type (or copy and paste) the following, then press Enter:
+                                <li>Type (or copy and paste) the command below and then press Enter:
                                     <ul>
                                         <li><b>./{{downloadId}} runserver --noreload</b></li>
                                     </ul>
+                                    <br>
+                                    <div>
+                                        <i>
+                                            Your terminal window should look like the image below though with </i>.\{{downloadId}}<i> instead of </i>.\python-marker123456
+                                            <img src="assets/mac/running.png">
+                                    </div>
                                 </li>
-                                <li>Press Enter key - e.g.
-                                    <img src="assets/mac/running.png">
-                                    <i>(replace python-marker123456 with {{downloadId}}</i>
-                                </li>
-                                <li>Wait until you see some text that looks similar to this:
+                                <li>Wait until you see some text that looks similar to that in the image below:
                                     <img src="assets/mac/text.png">
                                 </li>
-                                <li>Navigate to <a href='http://127.0.0.1:8000'>'http:127.0.0.1:8000'</a> or click the run button below to open the python marker</li>
+                                <li>Click the run button below to open the python marker (or navigate to <a href='http://127.0.0.1:8000'>'http:127.0.0.1:8000'</a>)
                             </ul>
                         </li>
                     </ol>

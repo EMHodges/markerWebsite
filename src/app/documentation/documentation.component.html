@@ -67,23 +67,40 @@
         </mat-card-content>
         <mat-card-content>
             Do not worry if you do not finish the question or complete all of the parts, please submit your answers to the website anyway. Remember your
-            submission is completely anonymous and I'm collecting answers to test the tool, not you!
+            submission is completely anonymous and I'm collecting answers to test the tool!
         </mat-card-content>
 
         <mat-card-content>
             <b>Opening the question</b>
-            <div>Click the <i>Click here to get started!'</i> link on the homepage (<a href="http://127.0.0.1:8000">http://127.0.0.1:800</a>/') to be taken to the question</div>
-            <img src="assets/using_python_marker/click_to_get_started.png">
+            <ul>
+                <li>
+                    <div>Click the <i>'Click here to get started!' </i> link on the homepage (<a href="http://127.0.0.1:8000">http://127.0.0.1:800</a>/') to be taken to the question:</div>
+                    <img src="assets/using_python_marker/click_to_get_started.png">
+                </li>
+            </ul>
+
         </mat-card-content>
         <mat-card-content>
             <b>
                 Answering the question
             </b>
             <div>
-            Type (or paste) your answer into the answer box for each part.
-            Click the 'run test & save' button to mark your answer - you can click this as many times as you'd like
-            <img src="assets/using_python_marker/run_test.png">
-        </div>
+                <li>Type (or paste) your answer into the answer box for each part.</li>
+                <li>You may use the functions from previous parts even if you didn't get that part right - i.e:
+                    <ul>
+                        <li>
+                            For part ii you may use the <b>time_to_seconds(time)</b> function from part i
+                        </li>
+                        <li>
+                            For part iii you may use the <b>time_to_seconds(time)</b> function from part i<b> and</b> the <b>track_points(time, event_parameters)</b> function from part ii
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                Click the 'Run Tests & Save' button to mark your answer - you can click this as many times as you'd like:
+                <img src="assets/using_python_marker/run_test.png">
+            </li>
+            </div>
         </mat-card-content>
         <mat-card-content>
             When you have finished answering please submit your answers - to do that follow the steps in the 'Finished' box below.
@@ -98,13 +115,13 @@
         <mat-card-content>
         To do this please:   
             <ol>
-                <li>Scroll to the bottom of the page on the automated marker and locate where it says 'Finished?'
+                <li>Scroll to the bottom of the page on the automated marker and locate where it says <b>'Finished?'</b>
                     <img src="assets/finished/finished.png">
                 </li>
-                <li>Click the 'Save your answers' button</li>
+                <li>Click the <b>'Save your answers'</b> button</li>
                 <li>Wait for 5 seconds while your answers are saved</li>
-                <li>Click the 'Click here to download file' link to create a file containing your answers</li>
-                <li>Click the 'Click here to upload file link' or click the button below and follow the instructions to upload your file</li>
+                <li>Click the <b>'Click here to download file' link to create a file containing your answers</b></li>
+                <li>Click the <b>'Click here to upload file link'</b> or click the button below and follow the instructions to upload your file</li>
             </ol>  
             <div class = "center">
                     <button mat-raised-button color='primary' (click)="navigateToUpload()">Upload</button>
@@ -120,13 +137,16 @@
     <li><b>Open powershell</b>
         <ul>
             <li>
-                In File Explorer highlight the text in the address bar (click on the white space to the left of the chevron in the address bar) - the text should turn blue 
+                In File Explorer highlight the text in the address bar (click on the white space to the left of the chevron in the address bar) - the text should turn blue as in the image below: 
                 <img src="assets/download_screenshots/chrome/highlight_address_bar.png">
             </li>
-            <li>Type 'powershell' and press the 'enter' key to open powershell
+            <li>Type <b>powershell</b> into the address bar (as in the image below) and then press Enter to open powershell:
                 <img src="assets/download_screenshots/chrome/type_powershell.png">
             </li>
+            A powershell window should open - it should look similar to the image below:
+            <img src="assets/download_screenshots/empty_powershell.png">
         </ul>
+
     </li>
 </ng-template>
 
@@ -134,7 +154,7 @@
     <li><b>Run the python marker</b>
         <ul>
             <li>Type the following replacing %downloadID% with the ID of your python-marker (the ID is 6 digits that are in the name of the python marker file you downloaded - e.g. the id for python-marker123456.exe is 123456). Then
-                press the enter key.
+                press Enter.
                 <ul>
                     <li><b>.\python-marker%downloadID%.exe runserver --noreload</b>
                         <div>-</div>
@@ -172,11 +192,16 @@
             <ol>
                 <li><b>Setup the Python Marker</b>
                     <ul>
-                        <li>Open launchpad and search for <b>terminal</b></li>
-                        <li>Click on the terminal icon to open the terminal
-                            <img src="assets/mac/terminal.png">
-                        </li>
-                        <li>Once in the terminal type the following replacing %downloadID% with your download ID - press enter key between each line:
+                        <li>Open terminal</li>
+                        One way to do this is to:
+                        <ul>
+
+                            <li>Open launchpad and search for <b>terminal</b></li>
+                            <li>Click on the terminal icon (it looks like the icon below) to open the terminal
+                                <img src="assets/mac/terminal.png">
+                            </li>
+                        </ul>
+                        <li>Once in the terminal type the following commands replacing %downloadID% with your download ID (this is the 6 digits that are in the name of the python marker file you downloaded - e.g. the id for python-marker123456.exe is 123456) - press Enter after each command:
                             <ul>
                                 <li><b>cd ~/Downloads</b></li>
                                 <li><b>
@@ -187,7 +212,7 @@
                                 </li>
                             </ul>
                             <br>
-                        Your terminal window should look like the below, though with your downloadID instead of python-marker123456: 
+                        Your terminal window should look like the image below, though with your downloadID instead of 123456: 
                             <img src="assets/mac/mac_command.png">
                         </li>
                     </ul>
@@ -195,14 +220,14 @@
                 </li>
                 <li><b>Run the python marker</b>
                     <ul>
-                        <li>Type (or copy and paste) the following, then press Enter:
+                        <li>Type the following command replacing %downloadID% with your downloadID,
+                            then press Enter:
                             <ul>
                                 <li><b>./%downloadID% runserver --noreload</b></li>
                             </ul>
-                        </li>
-                        <li>Press Enter key - e.g.
+                            <br>
+                            <i>Your terminal window should look similar to the image below though with your downloadId instead of python-marker123456</i>
                             <img src="assets/mac/running.png">
-                            <i>(replace python-marker123456 with your downloadID)</i>
                         </li>
                         <li>Wait until you see some text that looks similar to this:
                             <img src="assets/mac/text.png">
